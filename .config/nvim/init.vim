@@ -11,7 +11,7 @@
 " Plugins will be downloaded under the specified directory.
 call plug#begin('~/.config/nvim/plugged')
 
-" =============== Plugins after this ===============
+" ----------------- Plugins ---------------------------------------------------
 
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -89,7 +89,7 @@ Plug 'vim-scripts/ReplaceWithRegister'
 " re-enables it when you search again. https://github.com/romainl/vim-cool
 Plug 'romainl/vim-cool'
 
-" --- Languages ---
+" ----------------- Languages -------------------------------------------------
 
 " An up-to-date Vim syntax for PHP. https://github.com/StanAngeloff/php.vim
 Plug 'StanAngeloff/php.vim', { 'for': 'php' }
@@ -113,7 +113,7 @@ Plug 'othree/javascript-libraries-syntax.vim', { 'for': 'javascript' }
 " Vim's built-in syntax/css.vim. https://github.com/hail2u/vim-css3-syntax
 Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 
-" --- Appearance ---
+"------------------ Appearance ------------------------------------------------
 
 Plug 'mhartington/oceanic-next'
 
@@ -128,7 +128,9 @@ Plug 'chrisbra/Colorizer'
 
 " Plug 'romainl/flattened'
 
-Plug 'lifepillar/vim-solarized8'
+" ---- Colorscheme
+" Plug 'lifepillar/vim-solarized8'
+Plug 'Mofiqul/vscode.nvim'
 
 " neomutt.vim/ftplugin at master · neomutt/neomutt.vim
 " https://github.com/neomutt/neomutt.vim/tree/master/ftplugin
@@ -172,7 +174,7 @@ call plug#end()
 let g:used_javascript_libs = 'jquery'
 
 
-" --- Airline ---
+" ---------------- Airline ----------------------------------------------------
 
 let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:fzf_nvim_statusline = 0
@@ -248,7 +250,7 @@ let g:ale_cache_executable_check_failures = 1
 
 " }}}
 
-" --- NERDTree ---
+" ----------------- NERDTree --------------------------------------------------
 
 " Open NERDTree at GUI startup?
 " let g:nerdtree_tabs_open_on_gui_startup=0
@@ -372,9 +374,10 @@ if $TERM !=? 'linux'
   set background=dark
   " let g:neosolarized_contrast = "high"
   " colorscheme flattened_dark
-  colorscheme solarized8_high
+  " colorscheme solarized8_high
   " Override some color settings.
-  runtime color_override.vim
+  " runtime color_override.vim
+    :lua require('vscode').load('dark')
   " Non-visible characters used with 'set list'.
   set listchars=tab:>▸,trail:·,extends:⫸,precedes:⫷,nbsp:␣,eol:¶
   let NERDTreeDirArrows = 1
