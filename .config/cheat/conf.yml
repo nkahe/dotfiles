@@ -46,14 +46,14 @@ cheatpaths:
   # Once downloaded, ensure that 'path' below points to the location at which
   # you downloaded the community cheatsheets.
   - name: community
-    path: ~/MegaSync/cheat-community/cheatsheets
+    path: ~/MegaSync/Shared/cheat-community/cheatsheets
     tags: [ community ]
     readonly: true
 
   # If you have personalized cheatsheets, list them last. They will take
   # precedence over the more global cheatsheets.
   - name: personal
-    path: ~/MegaSync/cheat/
+    path: ~/MegaSync/Shared/cheat/
     tags: [ personal ]
     readonly: false
 
