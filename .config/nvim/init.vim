@@ -115,7 +115,7 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 
 "------------------ Appearance ------------------------------------------------
 
-Plug 'mhartington/oceanic-next'
+" Plug 'mhartington/oceanic-next'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -130,6 +130,8 @@ Plug 'chrisbra/Colorizer'
 
 " ---- Colorscheme
 " Plug 'lifepillar/vim-solarized8'
+" Neovim/Vim color scheme inspired by Dark+ and Light+ theme in Visual Studio Code
+" https://github.com/Mofiqul/vscode.nvim
 Plug 'Mofiqul/vscode.nvim'
 
 " neomutt.vim/ftplugin at master · neomutt/neomutt.vim

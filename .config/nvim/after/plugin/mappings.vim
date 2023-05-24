@@ -59,7 +59,7 @@ inoremap <expr> <C-A-i> gnvim#completion_menu_toggle_info()
 
 " = NERDTree
 " nnoremap <Leader>n :NERDTreeToggle<CR>
-call MapAll('<C-b>',':NERDTreeToggle<CR>')
+" call MapAll('<C-b>',':NERDTreeToggle<CR>')
 
 " = Vim-Wiki
 
@@ -203,7 +203,7 @@ nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
 " Misc {{{1
 
 " Insert mode
-inoremap jk <esc>
+" inoremap jk <esc>
 
 " Increment and decrement a number.
 nnoremap + <C-a>
