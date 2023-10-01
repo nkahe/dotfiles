@@ -1,0 +1,28 @@
+--langdef=mytypescript
+--langmap=mytypescript:.ts.tsx
+#--kinddef-mytypescript=M,method,methods
+--regex-mytypescript=/^[ \t]*(export[ \t]+([a-z]+[ \t]+)?)?class[ \t]+([a-zA-Z0-9_$]+)/\3/c,classes/
+--regex-mytypescript=/^[ \t]*(declare[ \t]+)?namespace[ \t]+([a-zA-Z0-9_$]+)/\2/m,modules/
+--regex-mytypescript=/^[ \t]*(export[ \t]+)?module[ \t]+([a-zA-Z0-9_$]+)/\2/n,modules/
+--regex-mytypescript=/^[ \t]*(export[ \t]+)?(default[ \t]+)?(async[ \t]+)?function(\*)?[ \t]+([a-zA-Z0-9_$]+)/\5/f,functions/
+--regex-mytypescript=/^[ \t]*(export[ \t]+)?(var|let|const)[ \t]+([a-zA-Z0-9_$]+)/\3/v,variables/
+
+--regex-mytypescript=/^[ \t]*ng[A-Za-z]+\(\);/\&Angular Lifecycle Hook/h,lifecycleHooks/
+
+--regex-mytypescript=/^[ \t]*(export)?[ \t]*(public|protected|private)[ \t]*(static)?[ \t]*([a-zA-Z0-9_]+)\([^\)]*\)/\4/M,methods/
+# Tämä ei toiminut.
+#--regex-mytypescript=/^[ \t]*(export[ \t]+)?(public|protected|private)?[ \t]*(static[ \t]+)?(abstract[ \t]+)?(((get|set|readonly)[ \t]+)|(async[ \t]+[*]*[ \t]*))?(#?[a-zA-Z1-9_$]+)[ \t]*[:(]/\9/M,methods/
+
+--regex-mytypescript=/^[ \t]*(export[ \t]+)?interface[ \t]+([a-zA-Z0-9_$]+)/\2/i,interfaces/
+--regex-mytypescript=/^[ \t]*(export[ \t]+)?type[ \t]+([a-zA-Z0-9_$]+)/\2/t,types/
+--regex-mytypescript=/^[ \t]*(export[ \t]+)?enum[ \t]+([a-zA-Z0-9_$]+)/\2/e,enums/
+--regex-mytypescript=/^[ \t]*import[ \t]+([a-zA-Z0-9_$]+)/\1/I,imports/
+
+--langdef=myHTML
+--langmap=myHTML:.html
+--regex-myHTML=/class=["']([^"']+)/\1/c,class/
+#--regex-myHTML=/<h[1-3]>([^<]+)/\1/h,headings/
+--regex-myHTML=/<h1>([^<]+)/\1/h,heading1/
+--regex-myHTML=/<h2>([^<]+)/\1/i,heading2/
+--regex-myHTML=/<h3>([^<]+)/\1/j,heading3/
+--regex-myHTML=/id=["']([^"']+)/\1/I,id/

@@ -1,0 +1,32 @@
+
+# All files and directories starting with .
+--exclude="^\."
+
+# Filetypes
+--exclude='*.svg'
+
+--exclude=build
+--exclude=cache
+--exclude=dist
+--exclude=doc
+--exclude=documentation
+--exclude=node_modules
+--exclude=out
+--exclude=package-lock.json
+--exclude=temp
+--exclude=tmp
+--exclude=vendor
+--exclude=venv
+--exclude=yarn.lock
+
+# Logs
+--exclude=logs
+--exclude=log
+--exclude=log_files
+
+# Tag files
+--exclude=GPATH
+--exclude=GRTAGS
+--exclude=GTAGS
+--exclude=tags|TAGS
+--exclude=Makefile
