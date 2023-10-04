@@ -1,0 +1,240 @@
+<snippets authors="Matheus Bastos" filetypes="*" name="Simple JavaScript Autocomplete" namespace="" license="GPL v3+">
+ <script>
+        function fileName() { return document.fileName(); }
+        function fileUrl() { return document.url(); }
+        function encoding() { return document.encoding(); }
+        function selection() { return view.selectedText(); }
+        function year() { return new Date().getFullYear(); }
+        function upper(x) { return x.toUpperCase(); }
+        function lower(x) { return x.toLowerCase(); }
+    </script>
+ <item>
+  <match>import</match>
+  <fillin>import ${cursor}</fillin>
+ </item>
+ <item>
+  <match>var</match>
+  <fillin>var ${ } = ${'value'}
+${cursor}</fillin>
+ </item>
+ <item>
+  <match>const</match>
+  <fillin>const ${ } = ${'value'}
+${cursor}</fillin>
+ </item>
+ <item>
+  <match>let</match>
+  <fillin>let ${ } = ${'value'}
+${cursor}</fillin>
+ </item>
+ <item>
+  <match>.forEach</match>
+  <fillin>.forEach((${currentValue}, ${index}, ${array}) => {
+    ${cursor}
+})
+</fillin>
+ </item>
+ <item>
+  <match>function</match>
+  <fillin>function ${'name'}(${args}) {
+    ${'commands'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>class</match>
+  <fillin>class ${'name'} {
+    constructor(${'args'}) {
+        ${'your code here'}
+    }
+}</fillin>
+ </item>
+ <item>
+  <match>class:extends</match>
+  <fillin>class ${'name'} extends ${'class'} {
+    constructor(${'args'}) {
+        super(${'args'})
+        ${'your code here'}
+    }
+}</fillin>
+ </item>
+ <item>
+  <match>for</match>
+  <fillin>for(${variables}; ${condition}; ${Increment/Decrement}) {
+    ${'your code here...'}
+}
+</fillin>
+ </item>
+ <item>
+  <match>for...in</match>
+  <fillin>for(${'variable'} in ${'obj'}) {
+    ${cursor}
+}
+</fillin>
+ </item>
+ <item>
+  <match>!arrowFunction:parameters</match>
+  <fillin>(${'parameters'}) => {
+    ${'code here'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>!arrowFunction</match>
+  <fillin>() => {
+    ${'code here'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>if</match>
+  <fillin>if (${condition}) {
+    ${'if true'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>if:else</match>
+  <fillin>if (${condition}) {
+    ${'if true'}
+} else {
+    ${'else'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>else</match>
+  <fillin>else {
+    ${'your code here...'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>do...while</match>
+  <fillin>do {
+    ${'statement'}
+} while (${'condition'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>while</match>
+  <fillin>while (${'condition'}) {
+    ${cursor}
+}</fillin>
+ </item>
+ <item>
+  <match>try...catch</match>
+  <fillin>try {
+    ${'try statements'}
+} catch (${'args'}) {
+    ${'catch statements'} 
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>try...finally</match>
+  <fillin>try {
+    ${'try statements'}
+} finally {
+    ${'finally statements'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>try...catch...finally</match>
+  <fillin>try {
+    ${'try statements'}
+} catch (${'args'}) {
+    ${'catch statement'}
+} finally {
+    ${'finally statements'}
+}${cursor}</fillin>
+ </item>
+ <item>
+  <match>switch</match>
+  <fillin>switch (${'expr'}) {
+    ${cursor}
+}</fillin>
+ </item>
+ <item>
+  <match>switch...case</match>
+  <fillin>switch (${'expr'}) {
+    case ${'value 1}: {
+    
+        break;
+    }
+    ${cursor}
+    default:
+        ${'your default statement'}
+}</fillin>
+ </item>
+ <item>
+  <match>break</match>
+  <fillin>break${cursor}</fillin>
+ </item>
+ <item>
+  <match>case</match>
+  <fillin>case ${'value'}: {
+    ${cursor}
+}</fillin>
+ </item>
+ <item>
+  <match>async</match>
+  <fillin>async ${cursor}</fillin>
+ </item>
+ <item>
+  <match>continue</match>
+  <fillin>continue ${cursor}</fillin>
+ </item>
+ <item>
+  <match>JSON.parse</match>
+  <fillin>JSON.parse(${'value here...'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>JSON.stringify</match>
+  <fillin>JSON.stringify(${'value here...'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>throw</match>
+  <fillin>throw ${cursor}</fillin>
+ </item>
+ <item>
+  <match>console.log()</match>
+  <fillin>console.log(${' '})${cursor}</fillin>
+ </item>
+ <item>
+  <match>!log</match>
+  <fillin>console.log(${' '})${cursor}</fillin>
+ </item>
+ <item>
+  <match>console.error()</match>
+  <fillin>console.error(${' '})${cursor}</fillin>
+ </item>
+ <item>
+  <match>console.warn()</match>
+  <fillin>console.warn(${' '})${cursor}</fillin>
+ </item>
+ <item>
+  <match>console.clear()</match>
+  <fillin>console.clear()${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.getElementById()</match>
+  <fillin>document.getElementById(${'String Element'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.getElementsByClassName()</match>
+  <fillin>document.getElementsByClassName(${'String ClassName'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.getElementsByTagName()</match>
+  <fillin>document.getElementsByTagName(${'String tagName'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.querySelectorAll()</match>
+  <fillin>document.querySelectorAll(${'String selector'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.write()</match>
+  <fillin>document.write(${'String text'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.writeIn()</match>
+  <fillin>document.writeIn(${'String text'})${cursor}</fillin>
+ </item>
+ <item>
+  <match>document.writeIn()</match>
+  <fillin>document.writeIn(${'String text'})${cursor}</fillin>
+ </item>
+</snippets>
