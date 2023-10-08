@@ -1,4 +1,4 @@
-<snippets authors="Matheus Bastos" filetypes="*" name="Simple JavaScript Autocomplete" namespace="" license="GPL v3+">
+<snippets name="Simple JavaScript Autocomplete" filetypes="*" license="GPL v3+" authors="Matheus Bastos" namespace="">
  <script>
         function fileName() { return document.fileName(); }
         function fileUrl() { return document.url(); }
@@ -191,10 +191,10 @@ ${cursor}</fillin>
  </item>
  <item>
   <match>console.log()</match>
-  <fillin>console.log(${' '})${cursor}</fillin>
+  <fillin>console.log(${' '});${cursor}</fillin>
  </item>
  <item>
-  <match>!log</match>
+  <match>clog</match>
   <fillin>console.log(${' '})${cursor}</fillin>
  </item>
  <item>

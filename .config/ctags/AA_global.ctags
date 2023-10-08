@@ -3,7 +3,7 @@
 --exclude="^\."
 
 # Filetypes
---exclude='*.svg'
+--exclude=*.svg
 
 --exclude=build
 --exclude=cache
@@ -30,3 +30,6 @@
 --exclude=GTAGS
 --exclude=tags|TAGS
 --exclude=Makefile
+
+# Compodoc
+--exclude=coverage
