@@ -24,7 +24,24 @@
         },
         "SCSS": {
             "Property": {
+                "selected-text-color": "#9cdcfe",
                 "text-color": "#9cdcfe"
+            },
+            "Selector Class": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Selector Pseudo": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Selector Tag": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Unit": {
+                "selected-text-color": "#b5cea8",
+                "text-color": "#b5cea8"
             }
         }
     },
