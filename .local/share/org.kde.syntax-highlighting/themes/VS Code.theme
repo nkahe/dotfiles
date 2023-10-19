@@ -8,6 +8,48 @@
                 "italic": true
             }
         },
+        "CSS": {
+            "Color": {
+                "selected-text-color": "#ce9178",
+                "text-color": "#ce9178"
+            },
+            "Normal Text": {
+                "selected-text-color": "#cccccc",
+                "text-color": "#cccccc"
+            },
+            "Property": {
+                "selected-text-color": "#9cdcfe",
+                "text-color": "#9cdcfe"
+            },
+            "Selector Attribute": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Selector Class": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Selector Id": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Selector Tag": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Unit": {
+                "selected-text-color": "#b5cea8",
+                "text-color": "#b5cea8"
+            },
+            "Value": {
+                "selected-text-color": "#ce9178",
+                "text-color": "#ce9178"
+            },
+            "Value Keyword": {
+                "selected-text-color": "#ce9178",
+                "text-color": "#ce9178"
+            }
+        },
         "Doxygen": {
             "Tags": {
                 "italic": true
@@ -23,11 +65,31 @@
             }
         },
         "SCSS": {
+            "Annotation": {
+                "selected-text-color": "#569cd6",
+                "text-color": "#569cd6"
+            },
+            "Color": {
+                "selected-text-color": "#ce9178",
+                "text-color": "#ce9178"
+            },
+            "Normal Text": {
+                "selected-text-color": "#cccccc",
+                "text-color": "#cccccc"
+            },
             "Property": {
                 "selected-text-color": "#9cdcfe",
                 "text-color": "#9cdcfe"
             },
+            "Selector Attribute": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
             "Selector Class": {
+                "selected-text-color": "#d7ba7d",
+                "text-color": "#d7ba7d"
+            },
+            "Selector Id": {
                 "selected-text-color": "#d7ba7d",
                 "text-color": "#d7ba7d"
             },
@@ -42,6 +104,14 @@
             "Unit": {
                 "selected-text-color": "#b5cea8",
                 "text-color": "#b5cea8"
+            },
+            "Value": {
+                "selected-text-color": "#ce9178",
+                "text-color": "#ce9178"
+            },
+            "Value Keyword": {
+                "selected-text-color": "#ce9178",
+                "text-color": "#ce9178"
             }
         }
     },
