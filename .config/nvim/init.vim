@@ -266,7 +266,7 @@ let g:ale_cache_executable_check_failures = 1
 let NERDnreeAutoDeleteBuffer = 1
 
 " Default path for wiki.
-let g:vimwiki_list = [{'path': '$HOME/MegaSync/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+let g:vimwiki_list = [{'path': '$HOME/Shared/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
 let g:vimwiki_ext2syntax = {'.md': 'markdown', '.markdown': 'markdown', '.mdown': 'markdown'}
 
