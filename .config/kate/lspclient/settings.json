@@ -19,7 +19,7 @@
         "css": {
             "command": ["vscode-css-language-server", "--stdio"],
             "url": "https://github.com/Microsoft/vscode/tree/main/extensions/css-language-features/server",
-                "highlightingModeRegex": "^CSS$"
+            "highlightingModeRegex": "^CSS$"
         },
         "html": {
             "command": ["vscode-html-languageserver", "--stdio"],
@@ -40,12 +40,11 @@
         },
         "less": {
             "use": "css",
-            "url": "https://github.com/Microsoft/vscode/tree/main/extensions/css-language-features/server",
             "highlightingModeRegex": "^LESSCSS$"
         },
         "lua": {
             "command": ["lua-language-server"],
-            "url": "https://github.com/sumneko/lua-language-server",
+            "url": "https://github.com/sumneko/lua-languageserver",
             "highlightingModeRegex": "^Lua$"
         },
         "markdown": {
@@ -53,10 +52,12 @@
             "url": "https://github.com/microsoft/vscode/tree/main/extensions/markdown-language-features/server",
             "highlightingModeRegex": "^Markdown$"
         },
-            "php": {
+        "php": {
             "command": ["phpactor", "language-server"],
-            "url": "https://github.com/python-lsp/python-lsp-server",
-            "highlightingModeRegex": "^PHP"
+            "commandDebug": ["phpactor", "language-server", "-vvv"],
+            "root": ".",
+            "url": "https://github.com/phpactor/phpactor",
+            "highlightingModeRegex": "^PHP \\(HTML\\)$"
         },
         "python": {
             "command": ["pylsp", "--check-parent-process"],
@@ -65,7 +66,6 @@
         },
         "scss": {
             "use": "css",
-            "url": "https://github.com/Microsoft/vscode/tree/main/extensions/css-language-features/server",
             "highlightingModeRegex": "^SCSS$"
         },
         "typescript": {
@@ -79,7 +79,7 @@
             "highlightingModeRegex": "^YAML$"
         },
         "xml": {
-            "command": ["lemminx-linux"],
+            "command": ["lemminx"],
             "url": "https://github.com/redhat-developer/vscode-xml#lemminx-binary",
             "highlightingModeRegex": "^XML$"
         }
