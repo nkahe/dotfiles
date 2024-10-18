@@ -5,11 +5,14 @@
 
 add_newline = false
 
+# Modules the prompt has
+
 format = """
 $shell\
 $username\
 $hostname\
 $shlvl\
+$python\
 $directory\
 $git_branch\
 $git_commit\
@@ -23,6 +26,8 @@ $battery\
 $time\
 $status\
 $character"""
+
+# Module options
 
 [status]
 disabled = false
