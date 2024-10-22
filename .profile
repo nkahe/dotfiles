@@ -97,4 +97,4 @@ fi
 # se 	SGR for separators between line and context fields (: and -).
 # ne 	boolean to prevent clearing to eol.
 
-export GREP_COLORS='ms=01;32:mc=01;31:sl=37:cx=01;33:fn=34:ln=32:bn=32:se=36'
+export GREP_COLORS='ms=01;36:mc=01;31:sl=37:cx=01;33:fn=34:ln=94:bn=32:se=36'
