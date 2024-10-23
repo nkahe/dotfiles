@@ -21,8 +21,8 @@ export LC_MESSAGES="en_US.UTF-8"
 
 # Default applications  --------------------------------------------------------
 
-# Helper function: check if command exists.
-has() {
+# Check if a command exists.
+function has() {
   command -v "$@" &> /dev/null
 }
 
@@ -39,30 +39,30 @@ fi
 export EDITOR=$editor
 export VISUAL=$editor
 
-has feh && export IMAGEVIEWER='feh'
+has qimgv && export IMAGEVIEWER='qimgv'
 has zathura && export PDFVIEWER='zathura'
 
 export AUDIOPLAYER="xdg-open"
 
-# if has most; then
-  # export PAGER='most'
-#else
+if has moar; then
+  export PAGER='moar'
+  export MOAR='-style github-dark'
+elif has most; then
+  export PAGER='most'
+else
   export PAGER='less'
-
-#fi
+fi
 
 if has bat; then
-  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
-  # It might also be necessary to set MANROFFOPT="-c" if you experience formatting problems.
+  # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  # It might be necessary to set MANROFFOPT="-c" if  experience formatting problems.
   export MANROFFOPT="-c"
-  if [[ $OSTYPE == 'darwin'* ]]; then
-    export BAT_THEME='Monokai Extended'
-  else
-    export BAT_THEME='Visual Studio Dark+'
-  fi
+  export BAT_THEME='Visual Studio Dark+'
 fi
 
 # Less  ------------------------------------------------------------------------
+
+# Termcap is in PZT::modules--environment
 
 if [[ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey ]]; then
   local configfile="--lesskey-file ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey"
@@ -98,3 +98,5 @@ fi
 # ne 	boolean to prevent clearing to eol.
 
 export GREP_COLORS='ms=01;36:mc=01;31:sl=37:cx=01;33:fn=34:ln=94:bn=32:se=36'
+
+export NODE_REPL_HISTORY="$HOME/.local/state/.node_repl_history"
