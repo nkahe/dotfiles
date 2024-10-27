@@ -12,19 +12,24 @@ $shell\
 $username\
 $hostname\
 $shlvl\
+$php\
 $python\
+$ruby\
+$nodejs\
 $directory\
 $git_branch\
 $git_commit\
 $git_state\
 $git_status\
 $memory_usage\
+$env_var\
 $sudo\
 $cmd_duration\
 $jobs\
 $battery\
 $time\
 $status\
+$container\
 $character"""
 
 # Module options
@@ -36,4 +41,4 @@ disabled = false
 disabled = false
 
 [character]
-vicmd_symbol = "[N](bold blue) ❯"
+vicmd_symbol = "[Normal](bold blue) ❯"
