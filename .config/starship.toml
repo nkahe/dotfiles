@@ -41,4 +41,4 @@ disabled = false
 disabled = false
 
 [character]
-vicmd_symbol = "[Normal](bold blue) ❯"
+vicmd_symbol = "[N](bold blue) ❯"
