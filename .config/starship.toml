@@ -3,7 +3,7 @@
 # $env_var\
 # $custom\
 
-add_newline = false
+add_newline = true
 
 # Modules the prompt has
 
