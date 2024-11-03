@@ -7,18 +7,6 @@
 export GEM_HOME="$HOME/.local/rubygems"
 [[ -d $GEM_HOME ]] && export PATH="$PATH:$GEM_HOME/bin"
 
-# Locale -----------------------------------------------------------------------
-
-# First set this lang to all locales.
-export LANG="fi_FI.UTF-8"
-
-# Character Type. Determines the locale category for character handling functions.
-# Needs to be here.
-export LC_CTYPE=$LANG
-
-# Language of applications
-export LC_MESSAGES="en_US.UTF-8"
-
 # Default applications  --------------------------------------------------------
 
 # Check if a command exists.
@@ -65,9 +53,9 @@ fi
 # Termcap is in PZT::modules--environment
 
 if [[ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey ]]; then
-  local configfile="--lesskey-file ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey"
+  configfile="--lesskey-file ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey"
 else
-  local configfile=''
+  configfile=''
 fi
 
 export LESS="--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen \
