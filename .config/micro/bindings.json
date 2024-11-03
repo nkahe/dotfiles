@@ -1,0 +1,9 @@
+{
+    "Alt-/": "lua:comment.comment",
+    "Alt-Left": "PreviousTab",
+    "Alt-Right": "NextTab",
+    "Alt-r": "ToggleRuler",
+    "Ctrl-r": "command-edit:replace ",
+    "F12": "command:reload",
+    "CtrlUnderscore": "lua:comment.comment"
+}
