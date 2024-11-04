@@ -1,5 +1,11 @@
 # ~/.config/starship.toml
 
+# Note ! different shells may have different config files.
+# This is default and used by Zsh.
+
+# Configuration | Starship
+# https://starship.rs/config/
+
 # $env_var\
 # $custom\
 
