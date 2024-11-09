@@ -283,7 +283,7 @@ nnoremap Q @q
 
 " Select all text
 nnoremap vA ggVG
-
+q
 " Open/close folding
 nnoremap <Tab> za<CR>
 

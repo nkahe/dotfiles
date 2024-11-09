@@ -42,7 +42,7 @@ if hostname() !=? "raspberrypi"
   " Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'neovim/nvim-lspconfig'
   " Autocompletion plugin
-  Plug 'hrsh7th/nvim-cmp' 
+  Plug 'hrsh7th/nvim-cmp'
   " LSP source for nvim-cmp
   Plug 'hrsh7th/cmp-nvim-lsp'
   " Snippets source for nvim-cmp
@@ -379,7 +379,9 @@ if $TERM !=? 'linux'
   " colorscheme solarized8_high
   " Override some color settings.
   " runtime color_override.vim
-    :lua require('vscode').load('dark')
+
+  " FIXME: ei toimi Vim:llä.
+  "  :lua require('vscode').load('dark')
   " Non-visible characters used with 'set list'.
   set listchars=tab:>▸,trail:·,extends:⫸,precedes:⫷,nbsp:␣,eol:¶
   let NERDTreeDirArrows = 1
