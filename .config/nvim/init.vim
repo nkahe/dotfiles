@@ -381,7 +381,7 @@ if $TERM !=? 'linux'
   " runtime color_override.vim
 
   " FIXME: ei toimi Vim:llä.
-  "  :lua require('vscode').load('dark')
+  :lua require('vscode').load('dark')
   " Non-visible characters used with 'set list'.
   set listchars=tab:>▸,trail:·,extends:⫸,precedes:⫷,nbsp:␣,eol:¶
   let NERDTreeDirArrows = 1
