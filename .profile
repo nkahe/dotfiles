@@ -15,9 +15,9 @@ function has() {
 }
 
 if has micro; then
-  editor="micro"
+  editor="lvim"
 elif has nvim; then
-  editor="nvim"
+  editor="micro"
 elif has vim; then
   editor="vim"
 else
