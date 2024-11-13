@@ -88,3 +88,4 @@ fi
 export GREP_COLORS='ms=01;36:mc=01;31:sl=37:cx=01;33:fn=34:ln=94:bn=32:se=36'
 
 export NODE_REPL_HISTORY="$HOME/.local/state/.node_repl_history"
+

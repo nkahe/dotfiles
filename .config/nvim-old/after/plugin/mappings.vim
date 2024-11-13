@@ -2,6 +2,8 @@
 
 let mapleader = ' '
 
+" L = LazyVim setupissa toteutettu.
+
 function! DiscardingPlugUpdate()
   let dirties = filter(copy(g:plugs),
     \ {_, v -> len(system(printf("cd %s && git diff --no-ext-diff --name-only", shellescape(v.dir))))})
@@ -30,14 +32,14 @@ function! MapAllIdent(key, command)
   exec 'snoremap' a:key '<C-o>' . a:command
 endfunction
 
-" Misc plugins {{{1
+" Misc plugins {{{1 ----------------------------------------------------------
 
 " Autoclose
 call MapAll('<A-a>', ':AutoCloseToggle<CR>')
 
 " = Buffkill
 
-" Delete buffer but leave windows/split intact:
+" Delete buffer but leave windows/split intact. L
 nnoremap <Leader>bd :BD<CR>
 
 " wipe a file from the buffer and keep the window/split intact:
@@ -48,7 +50,7 @@ nnoremap <Leader>ch :ColorHighlight<CR>
 nnoremap <Leader>cc :ColorClear<CR>
 nnoremap <Leader>ct :ColorToggle<CR>
 
-" = FZF
+" = FZF. L
 nnoremap  <C-p> :Files<CR>
 " M = Most recent used
 nnoremap <Leader>m :History<CR>
@@ -58,7 +60,7 @@ vnoremap <Leader>b :Buffers<CR>
 inoremap <expr> <C-A-i> gnvim#completion_menu_toggle_info()
 
 " = NERDTree
-" nnoremap <Leader>n :NERDTreeToggle<CR>
+nnoremap <Leader>n :NERDTreeToggle<CR>
 " call MapAll('<C-b>',':NERDTreeToggle<CR>')
 
 " = Vim-Wiki
@@ -99,7 +101,7 @@ nmap <Leader>wtr <Plug>VimwikiTableMoveColumnRight
 nmap <Leader>k <Plug>VimwikiDiaryPrevDay
 nmap <Leader>j <Plug>VimwikiDiaryNextDay
 
-" Coc {{{1
+" Coc {{{1 --------------------------------------------------------------------
 
 " Use `[c` and `]c` for navigate diagnostics
 " TODO: remap
@@ -171,7 +173,7 @@ inoremap <Expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 " position. Coc only does snippet and additional edit on confirm.
 inoremap <Expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" CocList {{{
+" CocList {{{ ---------------------------------------------------------------
 
 " Show all diagnostics
 nnoremap <silent> <Leader>la  :<C-u>CocList diagnostics<cr>
@@ -200,7 +202,7 @@ nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
 " }}}
 
 " }}}1
-" Misc {{{1
+" Misc {{{1 ----------------------------------------------------------------
 
 " Insert mode
 " inoremap jk <esc>
@@ -259,26 +261,26 @@ nnoremap <Return> i<CR><Esc>
 " dropping a mark before the operation to which you return afterwards:
 nnoremap J mzJ`z
 
-" Add newline while staying Normal mode.
+" Add newline while staying Normal mode. L=<Leader>io/O atm.
 nnoremap <leader>ij o<Esc>
 nnoremap <leader>ik O<Esc>
 
-" Insert single character. Can be repeated with . or added count.
+" Insert single character. Can be repeated with . or added count. L
 function! RepeatChar(char, count)
   return repeat(a:char, a:count)
 endfunction
 nnoremap <silent>ä :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " nnoremap {cmd} :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
-" Clear highlighting, update diff, redraw screen.
+" Clear highlighting, update diff, redraw screen. L (esc)
 inoremap <C-l> <C-o>:nohlsearch<BAR>diffupdate<CR><C-o><C-l>
 nnoremap <C-l> :nohlsearch<BAR>diffupdate<CR><C-l>
 
 "D deletes from the cursor to the end of the line; C changes from the cursor to
-"the end of the line. But Y yanks the entire line. Fix to yank to the end of line.
+"the end of the line. But Y yanks the entire line. Fix to yank to the end of line. L
 nnoremap Y y$
 
-" qq to record, Q to replay
+" qq to record, Q to replay. L
 nnoremap Q @q
 
 " Select all text
@@ -290,9 +292,9 @@ nnoremap <Tab> za<CR>
 " Close other folds than current one.
 nnoremap ,z zMzvzz
 
-" Buffers {{{1
+" Buffers {{{1 -------------------------------------------------------------
 
-" Use ,, to switch between buffers
+" Use ,, to switch between buffers. L: eri shortcut, mutta on.
 nnoremap <leader><leader> :b#<CR>
 
 " FZF does similar
@@ -324,7 +326,7 @@ nnoremap <Leader><Down> <C-w>j<CR>
 call MapAll('<A-Up>','<C-w>k')
 call MapAll('<A-Down>','<C-w>j')
 
-" Tabs {{{1
+" Tabs {{{1 ----------------------------------------------------------------
 
 nnoremap <Leader>tn :tabnew<CR>
 nnoremap <Leader>tc :tabclose<CR>
@@ -339,7 +341,7 @@ call MapAll('<A-7>','7gt')
 call MapAll('<A-8>','8gt')
 call MapAll('<A-9>','9gt')
 
-" Function keys {{{1
+" Function keys {{{1 --------------------------------------------------------
 
 " F2 = Coc Rename
 
@@ -380,14 +382,14 @@ nnoremap <Leader>em :edit ~/.config/nvim/after/plugin/mappings.vim<CR>
 " like open html-file in a browser.
 nnoremap <silent> <Leader>o :update<Bar>silent !xdg-open %:p &<CR>
 
-" Lists {{{1
+" Lists {{{1 ----------------------------------------------------------------
 
 nnoremap <Leader>lo :lopen<CR>
 nnoremap <Leader>co :copen<CR>
 nnoremap <Leader>lc :lclose<CR>
 nnoremap <Leader>cc :cclose<CR>
 
-" Motions & scrolling {{{1
+" Motions & scrolling {{{1 --------------------------------------------------
 
 nnoremap <leader>d "_d
 
@@ -445,7 +447,7 @@ cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q')
 command! -nargs=0 Vterm vsplit term://$SHELL
 
 
-" New objects {{{1
+" New objects {{{1 ----------------------------------------------------------
 
 " Inner line
 xnoremap <silent> il <Esc>^vg_

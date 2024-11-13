@@ -1,0 +1,17 @@
+{
+  "eslint.nodePath": "/usr/local/lib/node_modules",
+  "eslint.packageManager": "npm",
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "suggest.minTriggerInputLength": 3,
+guageserver": {
+      "intelephense": {
+          "command": "intelephense",
+          "args": ["--stdio"],
+          "filetypes": ["php"],
+          "initializationOptions": {
+              "storagePath": "/tmp/intelephense"
+          }
+      }
+  }
+}

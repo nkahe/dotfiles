@@ -126,10 +126,11 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'chrisbra/Colorizer'
 " Plug 'chrisbra/Colorizer', { 'on': 'ColorToggle' }
 
-" Plug 'romainl/flattened'
-
 " ---- Colorscheme
+
+" Vaihtoehtoisia
 " Plug 'lifepillar/vim-solarized8'
+" Plug 'romainl/flattened'
 " Neovim/Vim color scheme inspired by Dark+ and Light+ theme in Visual Studio Code
 " https://github.com/Mofiqul/vscode.nvim
 Plug 'Mofiqul/vscode.nvim'
@@ -369,6 +370,7 @@ set noerrorbells novisualbell t_vb= timeoutlen=500
 
 " Fancier appearance if we are not in TTY.
 if $TERM !=? 'linux'
+
   " Use truecolors
   if has('termguicolors') | set termguicolors | endif
   " Enable use of italic fonts
@@ -380,8 +382,26 @@ if $TERM !=? 'linux'
   " Override some color settings.
   " runtime color_override.vim
 
-  " FIXME: ei toimi Vim:llä.
-  :lua require('vscode').load('dark')
+  " Configuring colorscheme like this doesn't work.
+  " lua << EOF
+  " local c = require('vscode.colors').get_colors()
+  "   require('vscode').setup({
+  "   transparent = true,
+  "   italic_comments = true,
+  "   underline_links = true,
+  "   disable_nvimtree_bg = true,
+  "   color_overrides = {
+  "     vscLineNumber = '#FFFFFF',
+  "   },
+  "   group_overrides = {
+  "     Cursor = { fg=c.vscDarkBlue, bg=c.vscLightGreen, bold=true },
+  "   }
+  " })
+  " vim.cmd.colorscheme("vscode")
+  " EOF
+
+  colorscheme vscode
+
   " Non-visible characters used with 'set list'.
   set listchars=tab:>▸,trail:·,extends:⫸,precedes:⫷,nbsp:␣,eol:¶
   let NERDTreeDirArrows = 1
