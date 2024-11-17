@@ -14,12 +14,10 @@ function has() {
   command -v "$@" &> /dev/null
 }
 
-if has micro; then
-  editor="lvim"
-elif has nvim; then
+if has nvim && [[ $UID != 0 ]]; then
+  editor="nvim"
+elif has micro; then
   editor="micro"
-elif has vim; then
-  editor="vim"
 else
   editor="nano"
 fi
