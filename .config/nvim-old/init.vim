@@ -22,7 +22,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 Plug 'mhinz/vim-startify'
 
-Plug 'vifm/vifm.vim'
+" Plug 'vifm/vifm.vim'
 
 " DidYouMean: Vim plugin which asks for the right file to open
 " https://github.com/EinfachToll/DidYouMean

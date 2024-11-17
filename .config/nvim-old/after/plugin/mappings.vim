@@ -204,13 +204,6 @@ nnoremap <silent> <Leader>lp  :<C-u>CocListResume<CR>
 " }}}1
 " Misc {{{1 ----------------------------------------------------------------
 
-" Insert mode
-" inoremap jk <esc>
-
-" Increment and decrement a number.
-nnoremap + <C-a>
-nnoremap - <C-X>
-
 " Insert timestamp dd.mm.yyyy
 inoremap <A-m> <C-R>=strftime("%d.%m.%y")<CR>
 nnoremap <A-m> "=strftime("%d.%m.%y")<CR>p
@@ -224,10 +217,6 @@ endif
 " Black hole register. Use before command for when not wanting copy it to
 " clipboard / register.
 " noremap - "_
-
-" Backtick character is very awkward to press in nordic keyboard, so let's
-" remap it:
-noremap å `
 
 " Paste selected text to command line.
 " snoremap <C-l> <C-o>y:<C-r>"
@@ -248,11 +237,12 @@ nnoremap S "_S
 nnoremap c "_c
 nnoremap C "_C
 
-" Toggle spellcheck
+" Toggle spellcheck (L)
 nnoremap <Leader>ss :setlocal spell!<cr>
 
-" Make these work also in Normal mode:
+" Make these work also in Normal mode (L)
 nnoremap <BS> i<BS><Esc>l
+
 nnoremap <Return> i<CR><Esc>
 " nnoremap <BS> "_d<left><insert>
 " nnoremap <Return> i<CR>
@@ -269,7 +259,7 @@ nnoremap <leader>ik O<Esc>
 function! RepeatChar(char, count)
   return repeat(a:char, a:count)
 endfunction
-nnoremap <silent>ä :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
+nnoremap <silent>+ :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1)<CR>
 " nnoremap {cmd} :<C-U>exec "normal a".RepeatChar(nr2char(getchar()), v:count1)<CR>
 
 " Clear highlighting, update diff, redraw screen. L (esc)
@@ -277,16 +267,16 @@ inoremap <C-l> <C-o>:nohlsearch<BAR>diffupdate<CR><C-o><C-l>
 nnoremap <C-l> :nohlsearch<BAR>diffupdate<CR><C-l>
 
 "D deletes from the cursor to the end of the line; C changes from the cursor to
-"the end of the line. But Y yanks the entire line. Fix to yank to the end of line. L
+"the end of the line. But Y yanks the entire line. Fix to yank to the end of line. (L)
 nnoremap Y y$
 
-" qq to record, Q to replay. L
+" qq to record, Q to replay. (L)
 nnoremap Q @q
 
 " Select all text
 nnoremap vA ggVG
 
-" Open/close folding
+" Open/close folding. Not really good.
 nnoremap <Tab> za<CR>
 
 " Close other folds than current one.
@@ -347,7 +337,7 @@ call MapAll('<A-9>','9gt')
 
 call MapAll('<F3>','n')
 
-" In select mode find next instance of selected text
+" In select mode find next instance of selected text. (L)
 snoremap * <C-o>y/<C-r>"<CR>
 smap <F3> *
 
@@ -370,7 +360,7 @@ call MapAll('<F11>',':set invrelativenumber<CR>')
 
 call MapAll('<C-A-p>',':edit $MYVIMRC<CR>')
 
-" Set working dir to dir of current file (and display it).
+" Set working dir to dir of current file (and display it). (L)
 nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 nnoremap <Leader>e :Explore<CR>
@@ -390,14 +380,14 @@ nnoremap <Leader>lc :lclose<CR>
 nnoremap <Leader>cc :cclose<CR>
 
 " Motions & scrolling {{{1 --------------------------------------------------
-
+" L
 nnoremap <leader>d "_d
 
 " Visual line nav, not real line nav. If you wrap lines, vim by default won't
 " let you move down one line to the wrapped portion. when preceded with a
 " count then we want to go back to strict linewise movements. Similar to the
 " first version except this version will automatically save movements larger
-" than 5 lines to the jumplist.
+" than 5 lines to the jumplist. (L)
 " https://bluz71.github.io/2017/05/15/vim-tips-tricks.html
 
 nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
@@ -420,9 +410,11 @@ noremap ö $
 
 " GUI-like shortcuts {{{1
 
+" L
 call MapAll ('<C-BS>', '"_db')
 " Also C-BS, if terminal supports this.
 call MapAll ('<ESC>[127;5u', '"_db')
+
 call MapAll ('<A-BS>', '"_db')
 call MapAll ('<C-Del>', 'dw')
 call MapAll ('<C-Home>', 'gg0')
@@ -430,7 +422,7 @@ call MapAll ('<C-End>', 'G$')
 
 call MapAll ('<S-Insert>', '<MiddleMouse>')
 
-" nmap is in mswin.vim but this makes it work in different modes.
+" nmap is in mswin.vim but this makes it work in different modes. (L)
 call MapAll('<C-s>',':update<CR>')
 
 " Abbrevations and commands {{{1
@@ -439,7 +431,7 @@ call MapAll('<C-s>',':update<CR>')
 
 " Timestamp
 iabbrev xdate <c-r>=strftime("%d.%m.%y")<cr>
-
+ 
 " Make :W -> :w safe way
 cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
 cnoreabbrev <expr> Q ((getcmdtype() is# ':' && getcmdline() is# 'Q')?('q'):('Q'))
