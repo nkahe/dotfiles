@@ -38,6 +38,8 @@ $status\
 $container\
 $character"""
 
+right_format = """ """
+
 # Module options
 
 [status]
@@ -47,4 +49,4 @@ disabled = false
 disabled = false
 
 [character]
-vicmd_symbol = "[N](bold blue) ❯"
+vicmd_symbol = "[N](bold blue)"
