@@ -39,7 +39,7 @@ call MapAll('<A-a>', ':AutoCloseToggle<CR>')
 
 " = Buffkill
 
-" Delete buffer but leave windows/split intact. L
+" Delete buffer but leave windows/split intact. (L)
 nnoremap <Leader>bd :BD<CR>
 
 " wipe a file from the buffer and keep the window/split intact:
@@ -266,10 +266,6 @@ nnoremap <silent>+ :<C-U>exec "normal i".RepeatChar(nr2char(getchar()), v:count1
 inoremap <C-l> <C-o>:nohlsearch<BAR>diffupdate<CR><C-o><C-l>
 nnoremap <C-l> :nohlsearch<BAR>diffupdate<CR><C-l>
 
-"D deletes from the cursor to the end of the line; C changes from the cursor to
-"the end of the line. But Y yanks the entire line. Fix to yank to the end of line. (L)
-nnoremap Y y$
-
 " qq to record, Q to replay. (L)
 nnoremap Q @q
 
@@ -350,10 +346,10 @@ nmap <esc>O2R p
 call MapAll('<F5>',':edit!<CR>')
 
 " Sitch to paste mode, disabling all kinds of smartness and just pasting
-" a whole buffer of text.
+" a whole buffer of text. Deprecated in Neovim 0.9
 set pastetoggle=<F6>
 
-" Toggle relative / nonrelative line numbers
+" Toggle relative / nonrelative line numbers (L)
 call MapAll('<F11>',':set invrelativenumber<CR>')
 
 " File & dir management {{{1
@@ -365,6 +361,7 @@ nnoremap <Leader>cd :cd %:p:h<CR>:pwd<CR>
 
 nnoremap <Leader>e :Explore<CR>
 
+"L"
 nnoremap <Leader>ev :edit $MYVIMRC<CR>
 nnoremap <Leader>em :edit ~/.config/nvim/after/plugin/mappings.vim<CR>
 
@@ -374,6 +371,7 @@ nnoremap <silent> <Leader>o :update<Bar>silent !xdg-open %:p &<CR>
 
 " Lists {{{1 ----------------------------------------------------------------
 
+"L"
 nnoremap <Leader>lo :lopen<CR>
 nnoremap <Leader>co :copen<CR>
 nnoremap <Leader>lc :lclose<CR>
@@ -405,7 +403,7 @@ noremap <C-j> <C-e>
 " nnoremap <Down> gj
 " nnoremap <Up> gk
 
-" For scandinavian keyboards.
+" For scandinavian keyboards. (L)
 noremap ö $
 
 " GUI-like shortcuts {{{1
@@ -451,7 +449,7 @@ onoremap <silent> ib :<C-U>execute "normal! m`"<Bar>keepjumps normal! ggVG<CR>
 
 " Terminal {{{1
 
-" Exit terminal
+" Exit terminal. Huono kun tnore on i:ä vastaava.
 tnoremap <Leader><Esc> <C-\><C-N>
 
 " vi: ft=vim
