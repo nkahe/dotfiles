@@ -1,18 +1,21 @@
-" NeoVim-Qt sources this and other NeoVim GUIs should too.
+" Some settings for some Vim / Neovim GUI clients
 
+" NeoVim-Qt uses this but has settings also in ~/.config/neovim-qt
+" https://github.com/equalsraf/neovim-qt
+
+" Ei voi käyttää funktion sisällä
 " if !exists('g:GuiLoaded')
 "   return
 " endif
 
-" Set Editor Font
 if exists(':GuiFont')
   " GuiFont! NotoMono\ Nerd\ Font\ Mono:h11
   " GuiFont! Noto\ Mono\ for\ Powerline:h11
+  " set guifont=NotoMono\ Nerd\ Font\ Mono:h11
+  " set guifont=Noto\ Mono\ Nerd\ Font\ Complete\ Mono:h11
+  " Didn't work:
   " GuiFont! FiraCode\ Nerd\ Font:h13
 endif
-
-"set guifont=Noto\ Mono\ Nerd\ Font\ Complete\ Mono:h11
-" set guifont=NotoMono\ Nerd\ Font\ Mono:h11
 
 set guioptions=mr
 
