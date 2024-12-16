@@ -20,11 +20,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
 " Plug 'justinmk/vim-dirvish'
 
+" Lazyn Snacks:ssa tulee.
 Plug 'mhinz/vim-startify'
 
 " Plug 'vifm/vifm.vim'
 
-" DidYouMean: Vim plugin which asks for the right file to open
+" DidYouMean: Vim plugin which asks for the right file to open. (L)
 " https://github.com/EinfachToll/DidYouMean
 Plug 'EinfachToll/DidYouMean'
 
@@ -69,19 +70,21 @@ endif
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
 
-" https://github.com/Townk/vim-autoclose
+" https://github.com/Townk/vim-autoclose (L)
 Plug 'Townk/vim-autoclose'
 
 " Plug 'nathanaelkane/vim-indent-guides'
 
-" A vim plugin to display the indention levels with thin vertical lines.
+" A vim plugin to display the indention levels with thin vertical lines. (L)
 " https://github.com/Yggdroot/indentLine
 Plug 'Yggdroot/indentLine'
 
-" Intelligently reopen files at your last edit position.
+" Intelligently reopen files at your last edit position. LazyVimissä on
+" autocmd.
 Plug 'farmergreg/vim-lastplace'
 
-" Replace text with the contents of a register
+" Replace text with the contents of a register. Esim Substitute tai
+" mini.operators korvaa tämän.
 " https://github.com/vim-scripts/ReplaceWithRegister
 Plug 'vim-scripts/ReplaceWithRegister'
 
@@ -100,7 +103,7 @@ Plug 'othree/html5.vim', { 'for': 'html' }
 " https://github.com/ap/vim-templates.
 Plug 'ap/vim-templates'
 
-" Auto close (X)HTML tags. https://github.com/alvan/vim-closetag.
+" Auto close (X)HTML tags. https://github.com/alvan/vim-closetag. (L)
 Plug 'alvan/vim-closetag', { 'for': ['html', 'php'] }
 
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
@@ -117,13 +120,14 @@ Plug 'hail2u/vim-css3-syntax', { 'for': 'css' }
 
 " Plug 'mhartington/oceanic-next'
 
+" (L)"
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-" https://github.com/ntpeters/vim-better-whitespace
+" https://github.com/ntpeters/vim-better-whitespace. (L) on funktio.
 Plug 'ntpeters/vim-better-whitespace'
 
-Plug 'chrisbra/Colorizer'
+Plug 'chrisbra/Colorizer' (L)
 " Plug 'chrisbra/Colorizer', { 'on': 'ColorToggle' }
 
 " ---- Colorscheme
@@ -131,7 +135,7 @@ Plug 'chrisbra/Colorizer'
 " Vaihtoehtoisia
 " Plug 'lifepillar/vim-solarized8'
 " Plug 'romainl/flattened'
-" Neovim/Vim color scheme inspired by Dark+ and Light+ theme in Visual Studio Code
+" Neovim/Vim color scheme inspired by Dark+ and Light+ theme in Visual Studio Code. (L)
 " https://github.com/Mofiqul/vscode.nvim
 Plug 'Mofiqul/vscode.nvim'
 
@@ -139,7 +143,7 @@ Plug 'Mofiqul/vscode.nvim'
 " https://github.com/neomutt/neomutt.vim/tree/master/ftplugin
 Plug 'neomutt/neomutt.vim', { 'for': ['muttrc', 'mail'] }
 
-" NERDTree. https://github.com/scrooloose/nerdtree
+" NERDTree. https://github.com/scrooloose/nerdtree (L)
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -152,7 +156,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " --- Pope's plugins ---
 
-" Comment stuff out. gcc, gc in visual / operator pending mode.
+" Comment stuff out. gcc, gc in visual / operator pending mode. (L)
 " https://github.com/tpope/vim-commentary
 Plug 'tpope/vim-commentary'
 
@@ -163,9 +167,10 @@ Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-repeat'
 
 " Quoting/parenthesizing made simple. https://github.com/tpope/vim-surround
+" (L)
 Plug 'tpope/vim-surround'
 
-Plug 'tpope/vim-vinegar'
+"Plug 'tpope/vim-vinegar'
 
 " List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -309,7 +314,7 @@ call SourceIfExists('local.vim')
 " Notice: Don't need for 'syntax on' or 'ftp indent on' since VimPlug takes care of that.
 
 set clipboard=unnamedplus  " Use system clipboard. unnamed = 'select' (3rd mouse button)  clipboard.
-set confirm                " Confirm when exiting with unsaved changes.
+set confirm                " Confirm when exiting with unsaved changes. (L)
 set foldmethod=marker      " Fold with markers by default.
 set formatoptions+=t       " For text wrapping.
 set linebreak              " Wrap long lines preserving word.
@@ -317,14 +322,14 @@ set modeline modelines=3
 set nostartofline          " Stop certain movements from always going to the first character of a line.
 set noswapfile nobackup    " No swap files or backups
 set path+=**               " Commands like 'find' search files recursively.
-set scrolloff=7            " leave space before and after cursor when scrolling.
+set scrolloff=7            " leave space before and after cursor when scrolling. (L)
 " set shortmess+=filmnrxoOtT " Shorter messages. (no 'hit enter')
 set signcolumn=yes         " Always show signcolumns
 set splitbelow splitright  " Where open new splits.
 set textwidth=100
 set updatetime=300         " Coc: Smaller updatetime for CursorHold & CursorHoldI
 " Allow the cursor to go anywhere in visual block mode and beyond last character.
-set virtualedit+=block,onemore
+set virtualedit+=block,onemore " (L)
 set whichwrap+=h,l         " h/l wrap to previous/next line.
 set wrap wrapmargin=2      " Wrap lines 2 chars from the right window border.
 
@@ -340,7 +345,7 @@ set softtabstop=2  " Indent by n spaces when pressing <TAB>.
 set autoindent
 set shiftround     " tab / shifting moves to closest tabstop.
 
-" Searching
+" Searching (L)
 set ignorecase     " case insensitive search...
 set smartcase      " but ff there are uppercase letters, become case-sensitive.
 set showmatch      " live match highlighting
@@ -448,7 +453,7 @@ augroup vimrc
 " Clear previous autocommands
   autocmd!
 
-  " Source configurations when saving.
+  " Source configurations when saving.(L)
   autocmd BufWritePost $MYVIMRC,mappings.vim source % | echom "Sourced this file." | redraw
 
   autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") &&
@@ -498,15 +503,15 @@ augroup vimrc
   " au InsertEnter * let updaterestore=&updatetime | set updatetime=4000
   " au InsertLeave * let &updatetime=updaterestore
   " au CursorHoldI * stopinsert
-
+" (L)
   silent! autocmd InsertEnter * :set norelativenumber
   silent! autocmd InsertLeave * :set relativenumber
 
-" automatically rebalance windows on vim resize
+" automatically rebalance windows on vim resize (default Lazyssä)
   autocmd VimResized * :wincmd =
 
   if has('nvim')
-  " Insert mode by default in terminal.
+  " Insert mode by default in terminal. (L)
     autocmd TermOpen term://* startinsert
 
     " On terminal exit avoid "[Process exited 0]" -message.
