@@ -39,6 +39,10 @@ else
   export PAGER='less'
 fi
 
+if has nvimpager; then
+  export MANPAGER='nvimpager'
+fi
+
 if has bat; then
   # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   # It might be necessary to set MANROFFOPT="-c" if  experience formatting problems.
