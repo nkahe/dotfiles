@@ -1,7 +1,4 @@
-# ~/.config/starship.toml
-
-# NOTE: different shells may have different config files. This is the default
-# and used by Zsh.
+# Should be similar to default starship.toml but shows current shell.
 
 # Configuration | Starship
 # https://starship.rs/config/
@@ -41,11 +38,11 @@ $character"""
 
 # Module options
 
+[shell]
+disabled = false
+
 [status]
 disabled = false
 
-# [sudo]
-# disabled = false
-
 [character]
-vicmd_symbol = "[N](bold blue)"
+vicmd_symbol = "[N](bold blue) ❯"
