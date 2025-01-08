@@ -1,4 +1,0 @@
-
-syncthingiä käyttäessä plugged pitäisi olla .stignore:ssa
-Nvim käyttää: ~/.config/nvim , joka on symlinkki tänne, jotta toimisi myös tavallisen Vim:in kanssa.
-- vimrc.local sisältää mahdollisia konekohtaisia asetuksia.
