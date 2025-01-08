@@ -30,14 +30,16 @@ has zathura && export PDFVIEWER='zathura'
 
 export AUDIOPLAYER="xdg-open"
 
-if has moar; then
+# moar is defined installed as zinit -plugin so it's executable is not
+# available when this file is sourced.
+# if has moar; then
   export PAGER='moar'
   export MOAR='-style github-dark'
-elif has most; then
-  export PAGER='most'
-else
-  export PAGER='less'
-fi
+# elif has most; then
+#   export PAGER='most'
+# else
+#   export PAGER='less'
+# fi
 
 if has nvimpager; then
   export MANPAGER='nvimpager'
