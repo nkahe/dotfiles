@@ -3,11 +3,6 @@
 " NeoVim-Qt uses this but has settings also in ~/.config/neovim-qt
 " https://github.com/equalsraf/neovim-qt
 
-" Ei voi käyttää funktion sisällä
-" if !exists('g:GuiLoaded')
-"   return
-" endif
-
 if exists(':GuiFont')
   " GuiFont! NotoMono\ Nerd\ Font\ Mono:h11
   " GuiFont! Noto\ Mono\ for\ Powerline:h11
@@ -37,6 +32,7 @@ if exists(':GuiScrollBar')
     GuiScrollBar 1
 endif
 
+" Right mouse button
 " nnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>
 " inoremap <silent><RightMouse> <Esc>:call GuiShowContextMenu()<CR>
 " vnoremap <silent><RightMouse> :call GuiShowContextMenu()<CR>gv
