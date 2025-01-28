@@ -1,4 +1,6 @@
 
+# Ctags excludes
+
 # All files and directories starting with .
 --exclude="^\."
 

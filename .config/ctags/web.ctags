@@ -10,7 +10,7 @@
 --regex-mytypescript=/^[ \t]*ng[A-Za-z]+\(\);/\&Angular Lifecycle Hook/h,lifecycleHooks/
 
 --regex-mytypescript=/^[ \t]*(export)?[ \t]*(public|protected|private)[ \t]*(static)?[ \t]*([a-zA-Z0-9_]+)\([^\)]*\)/\4/M,methods/
-# Tämä ei toiminut.
+# Didn't work.
 #--regex-mytypescript=/^[ \t]*(export[ \t]+)?(public|protected|private)?[ \t]*(static[ \t]+)?(abstract[ \t]+)?(((get|set|readonly)[ \t]+)|(async[ \t]+[*]*[ \t]*))?(#?[a-zA-Z1-9_$]+)[ \t]*[:(]/\9/M,methods/
 
 --regex-mytypescript=/^[ \t]*(export[ \t]+)?interface[ \t]+([a-zA-Z0-9_$]+)/\2/i,interfaces/
