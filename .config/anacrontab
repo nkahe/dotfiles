@@ -1,4 +1,4 @@
-# /etc/anacrontab: configuration file for anacron
+# anacrontab: configuration file for anacron
 
 # See anacron(8) and anacrontab(5) for details. Note: this doesn't start daemon.
 # This is meant to run in .zprofile or similar.

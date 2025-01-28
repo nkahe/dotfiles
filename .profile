@@ -1,13 +1,17 @@
-# Environment that's shared between POSIX-like shells.
+# Environment that's shared between POSIX-like shells like Zsh and Bash.
 
 # Don't put anything that outputs something here. Can break things
 # like ssh and scp.
 
 # If terminal is set to xterm, set 256 color mode.
-[[ $TERM == xterm || $TERM == xterm-color ]] && export TERM=xterm-256color
+if [[ $TERM == xterm || $TERM == xterm-color ]]; then
+  export TERM=xterm-256color
+fi
 
+# Path
 [[ -d $HOME/bin ]] && export PATH="$PATH:$HOME/bin"
 [[ -d $HOME/.local/bin ]] && export PATH="$PATH:$HOME/.local/bin"
+[[ -d $HOME/scripts ]] && export PATH="$PATH:$HOME/scripts"
 
 export GEM_HOME="$HOME/.local/rubygems"
 [[ -d $GEM_HOME ]] && export PATH="$PATH:$GEM_HOME/bin"
@@ -20,6 +24,7 @@ function has() {
   command -v "$@" &> /dev/null
 }
 
+# Default text editor
 if has nvim && [[ $UID != 0 ]]; then
   editor="nvim"
 elif has micro; then
@@ -32,12 +37,11 @@ export EDITOR=$editor
 export VISUAL=$editor
 unset $editor
 
-# Not used currently.
 # has qimgv && export IMAGEVIEWER='qimgv'
 # has zathura && export PDFVIEWER='zathura'
 # export AUDIOPLAYER="xdg-open"
 
-# moar is defined installed as zinit -plugin so it's executable is not
+# moar pager is installed as zinit -plugin so it's executable is not
 # available when this file is sourced.
 # if has moar; then
   export PAGER='moar'
@@ -52,6 +56,7 @@ if has nvimpager; then
   export MANPAGER='nvimpager'
 fi
 
+# Bat
 if has bat; then
   # export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   # It might be necessary to set MANROFFOPT="-c" if  experience formatting problems.
@@ -107,6 +112,7 @@ has fzf && export FZF_DEFAULT_OPTS='--height 40%'
 
 # export FZF_ALT_C_COMMAND='^[d'
 
+# TLDR
 if has tldr; then
   # tldr installed with pip. https://pypi.org/project/tldr/
   export TLDR_COLOR_BLANK="cyan"
