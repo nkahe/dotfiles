@@ -1,13 +1,19 @@
+# Environment that's shared between POSIX-like shells.
+
+# Don't put anything that outputs something here. Can break things
+# like ssh and scp.
 
 # If terminal is set to xterm, set 256 color mode.
 [[ $TERM == xterm || $TERM == xterm-color ]] && export TERM=xterm-256color
 
-[[ -d $HOME/bin ]] && export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
+[[ -d $HOME/bin ]] && export PATH="$PATH:$HOME/bin"
+[[ -d $HOME/.local/bin ]] && export PATH="$PATH:$HOME/.local/bin"
 
 export GEM_HOME="$HOME/.local/rubygems"
 [[ -d $GEM_HOME ]] && export PATH="$PATH:$GEM_HOME/bin"
 
-# Default applications  --------------------------------------------------------
+# Local settings.
+[[ -f $HOME/shells/profile.local ]] && source $HOME/shells/profile.local
 
 # Check if a command exists.
 function has() {
@@ -24,11 +30,12 @@ fi
 
 export EDITOR=$editor
 export VISUAL=$editor
+unset $editor
 
-has qimgv && export IMAGEVIEWER='qimgv'
-has zathura && export PDFVIEWER='zathura'
-
-export AUDIOPLAYER="xdg-open"
+# Not used currently.
+# has qimgv && export IMAGEVIEWER='qimgv'
+# has zathura && export PDFVIEWER='zathura'
+# export AUDIOPLAYER="xdg-open"
 
 # moar is defined installed as zinit -plugin so it's executable is not
 # available when this file is sourced.
@@ -52,9 +59,11 @@ if has bat; then
   export BAT_THEME='Visual Studio Dark+'
 fi
 
+export GREP_COLORS='ms=01;36:mc=01;31:sl=37:cx=01;33:fn=34:ln=94:bn=32:se=36'
+
 # Less  ------------------------------------------------------------------------
 
-# Termcap is in PZT::modules--environment
+# Termcap is defined in PZT::modules--environment
 
 if [[ -f ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey ]]; then
   configfile="--lesskey-file ${XDG_CONFIG_HOME:-${HOME}/.config}/lesskey"
@@ -73,23 +82,46 @@ if [[ ! -f "$LESSHISTFILE" ]]; then
   fi
   :>"$LESSHISTFILE"
 fi
+unset cachedir configfile
 
-# Other application settings  --------------------------------------------------
-#
-# Code 	Explanation
-# mt 	SGR for ms and mc.
-# ms 	SGR for non-matching context in line with match.
-# mc 	SGR for non-matching context in line with match (-v).
-# sl 	SGR for whole selected lines.
-# cx 	SGR for whole context lines.
-# rv 	boolean that reverses sl and cx.
-# fn 	SGR for file names (-H).
-# ln 	SGR for line numbers (-n).
-# bn 	SGR for byte offsets.
-# se 	SGR for separators between line and context fields (: and -).
-# ne 	boolean to prevent clearing to eol.
+# Other application ------------------------------------------------------------
 
-export GREP_COLORS='ms=01;36:mc=01;31:sl=37:cx=01;33:fn=34:ln=94:bn=32:se=36'
+# NPM: no annoying messages about new versions (package manager handles it).
+if has npm; then
+  export NO_UPDATE_NOTIFIER
+fi
 
-export NODE_REPL_HISTORY="$HOME/.local/state/.node_repl_history"
+# dir="$HOME/.local/state"
+# [[ ! -d "$dir" ]] && mkdir -p "$dir"
+# file="$dir/.node_repl_history"
+# export NODE_REPL_HISTORY="$file"
+# unset dir file
 
+has wayland && export MOZ_ENABLE_WAYLAND=1
+
+has cheat && export CHEAT_USE_FZF=true
+
+# FZF by default starts in fullscreen mode, but you can make it start below the cursor
+# with --height option.
+has fzf && export FZF_DEFAULT_OPTS='--height 40%'
+
+# export FZF_ALT_C_COMMAND='^[d'
+
+if has tldr; then
+  # tldr installed with pip. https://pypi.org/project/tldr/
+  export TLDR_COLOR_BLANK="cyan"
+  export TLDR_COLOR_NAME="green"
+  export TLDR_COLOR_DESCRIPTION="cyan"
+  # Example tells what command does.
+  export TLDR_COLOR_EXAMPLE="white"
+  export TLDR_COLOR_COMMAND="blue"
+  export TLDR_COLOR_PARAMETER="cyan"
+  export TLDR_CACHE_ENABLED=1
+  export TLDR_CACHE_MAX_AGE=720
+fi
+
+# Linux utility to configure modifier keys to act as other keys when presse
+
+if has wget; then
+  export WGETRC=${XDG_CONFIG_HOME:-$HOME/.config}/wgetrc
+fi
