@@ -1,0 +1,26 @@
+#!/bin/sh
+
+ if [ -z "$1" ]; then
+     echo "Usage: mount_luks <device>"
+     echo "Example: mount_luks sda1"
+     return 1
+ fi
+
+ DEVICE="/dev/$1"
+ MAPPER_NAME="ext-hdd"
+ MOUNT_POINT="/mnt/ext-hdd"
+
+ echo "Unlocking LUKS partition on $DEVICE..."
+ sudo cryptsetup open "$DEVICE" "$MAPPER_NAME" || {
+     echo "Failed to unlock LUKS partition on $DEVICE."
+     return 1
+ }
+
+ echo "Mounting the filesystem..."
+ sudo mount "/dev/mapper/$MAPPER_NAME" "$MOUNT_POINT" || {
+     echo "Failed to mount the filesystem."
+     sudo cryptsetup close "$MAPPER_NAME"
+     return 1
+ }
+
+ echo "LUKS partition mounted at $MOUNT_POINT"

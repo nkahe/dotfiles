@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if [ -z $1 ];then echo "
+Change characters file names recursively""
+
+usage:
+  $("basename" "$0") <old_chars> <new_chars> <dir>"
+  exit 0
+fi
+
+find "$3" -depth -name '*' | while read file ; do
+  directory=$(dirname "$file")
+  oldfilename=$(basename "$file")
+  newfilename=$(echo "$oldfilename" | sed s/"$1"/"$2"/g)
+  if [ "$oldfilename" != "$newfilename" ]; then
+      mv -i "$directory/$oldfilename" "$directory/$newfilename"
+      echo ""$directory/$oldfilename" ⇒ "$newfilename""
+  fi
+  done
+exit 0

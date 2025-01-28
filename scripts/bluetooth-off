@@ -1,0 +1,3 @@
+#!/bin/bash
+# Meant to be called by init/logout script when needed.
+sudo /usr/sbin/rfkill block bluetooth

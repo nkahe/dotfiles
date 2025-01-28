@@ -1,0 +1,17 @@
+#!/bin/sh
+# Muuttaa hakemistojen tiedostonimissä ' ' ',' '_-_' -> _  ja ( ) [ ] -> '' rekursiivisesti.
+# Mahd. muuttaa myös pieniksi kirjaimiksi.
+
+if [ -z $1 ];then echo Give target directory; exit 0;fi
+
+find "$1" -depth -name '*' | while read file ; do
+        directory=$(dirname "$file")
+        oldfilename=$(basename "$file")
+        # lowercase: | tr 'A-Z' 'a-z' |
+        newfilename=$(echo "$oldfilename" | tr ' ' '_' | tr ',' '_' | tr '[' '(' | tr ']' ')' | sed 's/(//g' | sed 's/)//g' | sed 's/_-_/-/g')
+        if [ "$oldfilename" != "$newfilename" ]; then
+                mv -i "$directory/$oldfilename" "$directory/$newfilename"
+                echo ""$directory/$oldfilename" ⇒ "$newfilename""
+        fi
+        done
+exit 0

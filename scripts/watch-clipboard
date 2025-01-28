@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Watch clipboard content for testing purposes..
+last_clipboard=""
+while true; do
+    current_clipboard=$(wl-paste)
+    if [[ "$current_clipboard" != "$last_clipboard" ]]; then
+        echo "$current_clipboard"
+        last_clipboard="$current_clipboard"
+    fi
+    sleep 1
+done

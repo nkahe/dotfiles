@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Required X11 packages for Fedora
+packages=(
+    xorg-x11-server-Xorg
+    xorg-x11-xinit
+    mesa-dri-drivers
+    mesa-libGL
+    xorg-x11-drv-nouveau   # NVIDIA GPU (adjust to xorg-x11-drv-intel or xorg-x11-drv-amdgpu if needed)
+    xorg-x11-fonts-Type1
+    xorg-x11-fonts-misc
+)
+
+# Optional but useful packages
+optional_packages=(
+    xterm
+    xorg-x11-apps
+)
+
+check_packages() {
+    local package_list=("$@")
+    for package in "${package_list[@]}"; do
+        if rpm -q "$package" &> /dev/null; then
+            echo "Installed: $package"
+        else
+            echo "Missing:   $package"
+        fi
+    done
+}
+
+echo "Checking required X11 packages..."
+check_packages "${packages[@]}"
+
+echo -e "\nChecking optional X11 packages..."
+check_packages "${optional_packages[@]}"

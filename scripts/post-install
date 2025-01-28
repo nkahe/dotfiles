@@ -1,0 +1,298 @@
+#!/bin/bash
+
+# This is bootstrap script to install software etc after fresh Linux installation.
+
+# In this section only include package names which are same in all distros. Include other in check_distro -function.
+# Managed by Zinit: keyd, yadm, todo.sh
+
+# Try install these in all cases.
+
+# Oli fedoralla ainakin oletuksena: bc, cronie-anacron, kdegraphics-thumbnailers ksshaskpass,
+# smartmontools. Non-linux fonts are already in ~/.fonts.
+declare -a common_packages=(bat borgbackup ccze cheat colordiff cronie-anacron \
+  duf eza fd-find fzf git-core grc htop inxi make navi ncdu neovim p7zip powerline-fonts pydf \
+  python3-pip ripgrep smartmontools translate-shell trash-cli units unrar yp-tools \
+  zsh)
+
+# Macilla ei: fzf cronie-anacron smartmontools grc htop powerline-fonts
+# python-pip units unrar zsh (on jo) fzf most
+
+# löytyy: exa most p7zip nxdu sdcv make neovim cheat bat translate-shell syncthing
+# colordiff htop
+
+# yp-tools: zsh completion. powerline-fonts: exa, neovim airline
+
+# GUI applications installed with either Xorg or Wayland.
+declare -a common_GUI_packages=(ffmpegthumbs keepassxc)
+# File managers use ffmpegthumbs to show video thumbnails.
+
+# Packages to be installed only if Xorg is installed.
+declare -a X_packages=(xautomation xbindkeys xclip xdotool xdpyinfo xev xkill xvkbd)
+
+# Packages that are installed only if using Wayland.
+declare -a wayland_packages=(wl-clipboard wl-randr)
+
+# Packages installed with either KDE Plasma or LXQt
+declare -a qt_packages=(ark kdegraphics-thumbnailers kleopatra kompare krename
+ksshaskpass qdirstat)
+
+# Packages installed with KDE Plasma
+declare -a kde_packages=(kcm_systemd krusader yakuake)
+
+# Packages installed with LXQt
+declare -a lxqt_packages=(evolution dolphin gwenview git-credential-libsecret kwrite\
+  menulibre okular redshift picom redshift-gtk seahorse spectacle)
+
+# Uninstall these if installed.
+declare -a unnecessary_packages=(anthy brltty libcangjie)
+
+# Pause in seconds after information to user.
+readonly moment=1
+
+test_network() {
+  if ! ping -c 1 google.com; then
+      echo "Error: no internet connection." >&2
+      exit 100
+  fi
+}
+
+# Test silently if command exists.
+has() {
+  if command -v "$@" &> /dev/null; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+make_dirs() {
+  echo -e "Making necessary directories if they don't exist yet.\n"
+  sleep $moment
+   mkdir --parents --verbose "$HOME/.local/bin" \
+    "$HOME/tmp" \
+    "${XDG_DATA_HOME:-$HOME/.local/share}" \
+    "${XDG_STATE_HOME:-$HOME/.local/state}" \
+    "${XDG_CACHE_HOME:-$HOME/.cache}/zsh" \
+    "$HOME/.local/spool/anacron" \
+    "$HOME/.local/man/man1"
+}
+
+  # for dir in "$@"
+  # do
+  #   if [[ ! -d "$dir" ]]; then
+  #     mkdir --parents --verbose "$dir"
+  #   fi
+  # done
+
+make_symlinks() {
+  echo 'Making necessary symlinks..' && sleep $moment
+  [[ ! -d "$HOME"/.fonts ]] && ln -sdv "$HOME"/linux/.fonts "$HOME"/.fonts
+  [[ ! -e "$HOME"/.todo ]] && ln -sdv "$HOME"/Sync/todo "$HOME"/.todo
+  if has vim && [[ ! -e "$HOME/.vim" ]]; then
+    ln -sdv "$HOME"/.config/nvim "$HOME"/.vim
+  fi
+}
+
+make_symlinks_root () {
+  echo "Making symlinks $HOME/.config/zsh -> /root/.config/zsh and
+       $HOME/.local/share/zinit /root/.local/share. Sudo needed..."
+
+  local dir="/root/.local/man/man1"
+  [[ ! -d $dir ]] && sudo mkdir -vp "$dir"
+
+  if [[ ! -e /root/.config/zsh ]]; then
+    if [[ ! -d /root/.config ]]; then
+      sudo mkdir -v /root/.config
+    fi
+    sudo ln -sdv "$HOME"/.config/zsh /root/.config/zsh
+  fi
+
+  if [[ ! -e /root/.local/share/zinit ]]; then
+    if [[ ! -d /root/.local/share ]]; then
+      sudo mkdir -pv /root/.local/share
+    fi
+    sudo ln -sdv "$HOME"/.local/share/zinit /root/.local/share/zinit
+  fi
+
+  [[ ! -d /root/.local/state ]] && sudo mkdir -pv /root/.local/state
+
+  local dir="/root/.cache/zsh"
+  [[ ! -d $dir ]] && sudo mkdir -pv $dir
+}
+
+# Set commands and packages based on distro.
+check_distro() {
+  local file=/etc/os-release
+  if [[ -e $file ]]; then
+    source "$file"
+  else
+    if [[ $OSTYPE == 'darwin'* ]]; then
+      ID='mac'
+    fi
+  fi
+  if [[ $ID == fedora ]]; then
+    install="dnf install --skip-broken"
+    uninstall="dnf remove"
+    update="dnf update"
+    check_if_installed="rpm --query"
+    packages=("${common_packages[@]}" fd-find fedy ShellCheck task yank-cli)
+    firefox="firefox"
+    if [[ ! -f /etc/yum.repos.d/rpmfusion-nonfree.repo ]]; then
+      echo -e "Enabling RPM Fusion repo, sudo password needed... \n"
+      sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+    fi
+  elif [[ $ID == "opensuse"* ]]; then
+    install="zypper install"
+    uninstall="zypper remove"
+    if [[ $ID == "opensuse-tumbleweed" ]]; then
+      update="dup"
+    else
+      update="update"
+    fi
+    update="zypper refresh && zypper $update"
+    check_if_installed="rpm --query"
+    packages=("${common_packages[@]}" fd shellcheck taskwarrior yank)
+    firefox="MozillaFirefox"
+  elif [[ $ID == "raspbian" ]]; then
+    install="apt install"
+    uninstall="apt remove"
+    update="apt update && sudo apt upgrade"
+    check_if_installed="dpkg-query -l"
+    packages=("${common_packages[@]}" fd-find shellcheck taskwarrior yank)
+    firefox=""
+  elif [[ $ID == "mac" ]]; then
+    install="brew install"
+    uninstall="brew uninstall"
+    update="brew update && brew upgrade"
+    packages=(fd)
+  else
+    echo "Error: no supported distribution found." >&2
+    exit 1
+  fi
+}
+
+# Set installable packages and repositories based on display manager.
+check_DM() {
+  if has X; then
+    echo "Xorg found." && sleep $moment
+    packages+=("${X_packages[@]}")
+    xorg=1
+  else
+    echo "No Xorg found." && sleep $moment
+    xorg=0
+  fi
+
+  if [[ $SESSION_TYPE == wayland ]]; then
+    echo "Wayland found." && sleep $moment
+    packages+=("${wayland_packages[@]}")
+    wayland=1
+  else
+    echo "No Wayland found." && sleep $moment
+    wayland=0
+  fi
+
+  if [[ $xorg == 1 || $wayland == 1 ]]; then
+    packages+=("${common_GUI_packages[@]}" "$firefox")
+    if [[ $ID == fedora ]]; then
+      if ! ls /etc/yum.repos.d/*fedy*; then
+        echo -e "Enabling copr repo for Fedy\n"
+        sudo dnf copr enable kwizart/fedy
+        packages+=(fedy)
+      fi
+      if ! ls /etc/yum.repos.d/*cherrytree*; then
+         echo -e "Enabling copr repo for Cherrytree..\n"
+        sudo dnf copr enable bcotton/cherrytree
+        packages+=(cherrytree-future)
+      fi
+    fi
+    has libreoffice && packages+=(libreoffice-voikko)
+  else
+    echo "No GUI found."
+    packages+=(NetworkManager-tui)
+  fi
+}
+
+change_to_zsh() {
+  if has zsh && [[ $SHELL != *zsh ]]; then
+    while true; do
+      read -pr "Change default shell to Zsh for user and root (y/n)? " answer
+      case $answer in
+        [Yy]* )
+          echo
+          chsh -s "$(command -v zsh)"
+          sudo chsh -s "$(command -v zsh)"
+          if [[ ! -f /root/.zshenv ]]; then
+            sudo cp -vi "$HOME"/.zshenv /root
+          fi
+          break
+          ;;
+        * ) break ;;
+      esac
+    done
+  fi
+}
+
+# Set installable packages based on desktop environment.
+check_DE() {
+  if [[ $XDG_CURRENT_DESKTOP == "LXQt" || $XDG_CURRENT_DESKTOP == "KDE" ]]; then
+    packages+=("${qt_packages[@]}")
+    if [[ $XDG_CURRENT_DESKTOP == "LXQt" ]]; then
+      packages+=("${lxqt_packages[@]}")
+    elif [[ $XDG_CURRENT_DESKTOP == "KDE" ]]; then
+      packages+=("${kde_packages[@]}")
+    fi
+  else
+    echo -e "Did't find supported desktop environemnt.\n"
+  fi
+}
+
+# Install Zinit package manager.
+install_zinit() {
+  local zinit_bin="${XDG_DATA_HOME:-$HOME/.local/share}/zinit/bin"
+  if [[ ! -d "$zinit_bin" ]] && has git; then
+    echo -e "Installing Zinit..\n"
+    git clone https://github.com/zdharma-continuum/zinit.git "$zinit_bin"
+    # Ei löytänyt tätä:
+    compile_or_recompile "$zinit_bin/zinit.zsh"
+  fi
+}
+
+# Remove unnecessary packages if found.
+remove_packages() {
+  declare -a removable_packages=()
+  for package in "${unnecessary_packages[@]}"
+  do
+    $check_if_installed "$package" &>/dev/null && removable_packages+=("$package")
+  done
+  if [[ "${#removable_packages[@]}" -ne 0 ]]; then
+    echo -e "\nRemoving unnecessary packages...\n"
+  fi
+  sudo $uninstall ${removable_packages[@]}
+}
+
+main() {
+  [[ $UID == 0 ]] && echo "Error: please don't run this script as root." >&2 && exit 1
+  # test_network
+  check_distro
+  # check_DM
+  # check_DE
+
+  # Sort package names.
+  readarray -t sorted < <(printf '%s\0' "${packages[@]}" | sort -z | xargs -0n1)
+
+  echo -e "Performing system update with: 'sudo $update'\n" && sleep $moment
+  # sudo $update
+
+  echo -e "\nTrying to install packages: ${sorted[*]}" && sleep $moment
+
+  # sudo $install ${sorted[*]}
+
+  make_dirs
+  # make_symlinks
+  # make_symlinks_root
+  remove_packages
+  #change_to_zsh
+  #install_zinit
+}
+
+main

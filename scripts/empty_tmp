@@ -1,0 +1,3 @@
+#!/bin/sh
+# This is meant to be called periodically by anacron-cronie.
+rm -rf $HOME/tmp/*

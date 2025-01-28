@@ -1,0 +1,9 @@
+# Sets DP screen to 1440p 144hz mode, runs command and returns to 4K 60hz.
+
+# Depends: gamemode, kscreen-doctor
+
+kscreen-doctor output.DP-1.mode.2560x1440@144
+wait 7
+gamemoderun $1
+wait
+kscreen-doctor output.DP-1.mode.3840x2160@120

@@ -1,0 +1,8 @@
+#!/bin/sh
+if [ $UID != 0 ] ; then
+  echo "Sudo required"
+  exit 1
+fi
+
+# Commenting out lines containing "compinit" but are not already commented.
+sed -e '/compinit/ s/^#*/#/' -i /etc/zshrc
