@@ -1,0 +1,29 @@
+" This file is for normal Vim
+
+scriptencoding = UTF-8
+
+" For setting terminal tab titles.
+let g:editor_name = 'Vim'
+
+" Don't need these in NeoVim since they are the default
+
+runtime macros/matchit.vim
+
+set autoindent     " Keep indentation from previous line
+set autoread       " when a file has changed on disk, just load it. Don't ask.
+set background="dark"
+set complete-=i    " Don't complete file names.
+set history=10000  " Set maximum command history
+set hlsearch
+set incsearch      " show search matches as you type
+set laststatus=2   " Statusline is always showns
+set shortmess+=F
+set sidescroll=1
+set smarttab       " let's tab key insert 'tab stops', and bksp deletes tabs.
+set ttyfast        " Indicates a fast terminal connection.
+set wildmenu       " Better command-line completion
+
+" This file is used by all Vim variations.
+source ~/.config/nvim/init.vim
+
+"ft=vim

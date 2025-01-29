@@ -1,0 +1,35 @@
+# ~/.config/starship.toml
+
+# $env_var\
+# $custom\
+
+# Don't print a new line at the start of the prompt
+add_newline = true
+
+format = """
+$shell\
+$username\
+$hostname\
+$shlvl\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$memory_usage\
+$sudo\
+$cmd_duration\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
+
+[status]
+disabled = false
+
+[sudo]
+disabled = false
+
+[character]
+vicmd_symbol = "[N](bold blue) ❯"
