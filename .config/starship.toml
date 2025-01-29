@@ -1,19 +1,19 @@
 # ~/.config/starship.toml
 
-# NOTE: different shells may have different config files. This is the default
-# and used by Zsh.
+# Note ! different shells may have different config files.
+# This is default and used by Zsh.
 
-# Configuration | Starship
-# https://starship.rs/config/
+# Starship prompt - https://starship.rs/config
 
 # $env_var\
 # $custom\
 
-add_newline = true
+add_newline = false
 
 # Modules the prompt has
 
-# NOTE: Don't add sudo -module. It spams journalctl with messages after every command.
+# WARNING: Don't add sudo -module. It spams journalctl with messages after every
+# command.
 
 format = """
 $shell\
@@ -48,4 +48,5 @@ disabled = false
 # disabled = false
 
 [character]
+# Vi normal mode symbol
 vicmd_symbol = "[N](bold blue)"
