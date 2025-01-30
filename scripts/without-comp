@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# If compositing is on, stop it before starting application and enable it
+# after it has stopped.
+
+# esim. without-comp gamemoderun xonotic
+
+if [[ -z $1 ]]; then
+  echo "Usage:"
+  echo "without-comp <application>"
+  exit 1
+fi
+
+if command -v picom &>/dev/null; then
+  pgrep picom &>/dev/null && killall picom
+  "$@" && picom
+else
+  "$@"
+fi

@@ -9,10 +9,10 @@
 
 # Oli fedoralla ainakin oletuksena: bc, cronie-anacron, kdegraphics-thumbnailers ksshaskpass,
 # smartmontools. Non-linux fonts are already in ~/.fonts.
-declare -a common_packages=(bat borgbackup ccze cheat colordiff cronie-anacron \
-  duf eza fd-find fzf git-core grc htop inxi make navi ncdu neovim p7zip powerline-fonts pydf \
-  python3-pip ripgrep smartmontools translate-shell trash-cli units unrar yp-tools \
-  zsh)
+declare -a common_packages=(aerc bat borgbackup btop ccze cheat colordiff
+  cronie-anacron diff-so-fancy duf eza fd-find fzf git-core grc htop inxi make
+  navi ncdu neovim p7zip powerline-fonts pydf python3-pip ripgrep smartmontools
+  translate-shell trash-cli units unrar yp-tools zoxide zsh)
 
 # Macilla ei: fzf cronie-anacron smartmontools grc htop powerline-fonts
 # python-pip units unrar zsh (on jo) fzf most

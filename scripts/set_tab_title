@@ -5,7 +5,7 @@
 case "$TERM" in
   dumb|linux)
   return 1
-esac    
+esac
 
 # Exit if one parameter isn't given.
 if [ "$#" -ne 1 ]; then

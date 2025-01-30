@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# Fast way to mount LUKS devices.
+
  if [ -z "$1" ]; then
      echo "Usage: mount_luks <device>"
      echo "Example: mount_luks sda1"

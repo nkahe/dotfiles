@@ -4,8 +4,6 @@
 # Forked, made more modern and extended from script written by Timothy Lin.
 # https://github.com/lzh9102/bash-countdown
 
-# This is not something I'd prefer to do in Bash but for practice.
-
 # TODO:
 
 # -h/--help pyytää nyt aikaa.

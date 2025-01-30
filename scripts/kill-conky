@@ -1,0 +1,5 @@
+#!/bin/bash
+# Logout script
+
+killall conky
+sleep 2

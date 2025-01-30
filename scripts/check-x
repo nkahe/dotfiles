@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Checks and reports if you have required packages for X.org in rpm-based
+# distros. Made for Fedora and package names can be different for other distros.
+# Can be useful when using Wayland.
+
 # Required X11 packages for Fedora
 packages=(
     xorg-x11-server-Xorg

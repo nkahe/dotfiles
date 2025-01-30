@@ -1,3 +1,7 @@
+#!/bin/sh
+
+# Dead simple: print months in english and finnish
+
 echo "1  January   tammikuu
 2  February  helmikuu
 3  March     maaliskuu

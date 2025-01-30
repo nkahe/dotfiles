@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Watch clipboard content for testing purposes..
+# Watch clipboard content for testing purposes.
+
 last_clipboard=""
 while true; do
     current_clipboard=$(wl-paste)

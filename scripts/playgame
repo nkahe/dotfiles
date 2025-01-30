@@ -1,9 +1,23 @@
-# Sets DP screen to 1440p 144hz mode, runs command and returns to 4K 60hz.
+#!/bin/bash
+# Sets DP screen to 1440p 144hz mode, runs command and returns to 4K 120hz.
 
-# Depends: gamemode, kscreen-doctor
+if ! command -v kscreen-doctor >/dev/null; then
+  echo "error: kscreen-doctor missing"
+  exit 1
+fi
+
+if ! command -v gamemoderun >/dev/null; then
+  echo "error: gamemoderun missing"
+  exit 1
+fi
+
+if [[ -z $1 ]]; then
+  echo "usage: $("basename" "$0") [game executable]"
+  exit 1
+fi
 
 kscreen-doctor output.DP-1.mode.2560x1440@144
 wait 7
-gamemoderun $1
+gamemoderun "$1"
 wait
 kscreen-doctor output.DP-1.mode.3840x2160@120
