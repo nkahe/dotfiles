@@ -21,6 +21,11 @@ optional_packages=(
     xorg-x11-apps
 )
 
+if command -v rpm &>/dev/null; then
+  echo "Error: rpm not found"
+  exit 1
+fi
+
 check_packages() {
     local package_list=("$@")
     for package in "${package_list[@]}"; do
