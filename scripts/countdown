@@ -1,9 +1,0 @@
-#!/bin/sh
-start_time=$(date --utc +%s)
-  tput civis
-  while true; do
-now=$(date --utc +%s)
-  echo -ne "$(date -u --date @$(expr $now - $start_time) +%H:%M:%S)\r";
-  sleep 1
-  done
-  tput cnorm
