@@ -1,7 +1,9 @@
 {
     "servers": {
         "angular": {
-            "command": ["ngserver", "--stdio" , "--tsProbeLocations", "%{ENV:HOME}/.local/lib/node_modules", "--ngProbeLocations", "%{ENV:HOME}/.local/lib/node_modules"],
+            "command": ["ngserver", "--stdio" ,
+              "--tsProbeLocations", "%{ENV:HOME}/.local/lib/node_modules",
+              "--ngProbeLocations", "%{ENV:HOME}/.local/lib/node_modules"],
             "rootIndicationFileNames": ["angular.json"],
             "url": "https://github.com/angular/vscode-ng-language-service",
             "highlightingModeRegex": "^Angular HTML template$"
