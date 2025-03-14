@@ -1,6 +1,4 @@
 [Desktop Entry]
-Comment[en_US]=KDE Wallet:a varten
-Comment=KDE Wallet:a varten
 Exec=ssh-add -q
 GenericName[en_US]=Adds private key identities to the OpenSSH authentication agent
 GenericName=Adds private key identities to the OpenSSH authentication agent
