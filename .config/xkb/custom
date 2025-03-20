@@ -1,0 +1,18 @@
+partial alphanumeric_keys
+xkb_symbols "custom" {
+    include "fi(nodeadkeys)"
+
+    // Key            Characters
+    // -------------------------
+    // left of 1      ` ~ ´ §
+    // 4              4 ^ $ ¤
+    // Left of BS     \ |
+    // å              [ { å Å
+    // Left of enter  ] }
+
+    key <TLDE> { [ grave,         asciitilde,   acute,  section  ] };
+    key <AE04> { [ 4,             asciicircum,  dollar, currency ] };
+    key <AE12> { [ backslash,     bar                            ] };
+    key <AD11> { [ bracketleft,   braceleft,    aring,  Aring    ] };
+    key <AD12> { [ bracketright,  braceright                     ] };
+};
