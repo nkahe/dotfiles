@@ -41,8 +41,19 @@ $character"""
 [shell]
 disabled = false
 
+# Commit hash and tag.
+[git_commit]
+disabled=true
+
+# Displays the exit code of the previous command
 [status]
 disabled = false
 
+# WARNING: Don't enable. It spams journalctl with messages after every command.
+[sudo]
+disabled = true
+
 [character]
-vicmd_symbol = "[N](bold blue) ❯"
+# Vi normal mode symbol
+vicmd_symbol = "[N](bold blue)"
+

@@ -12,9 +12,6 @@ add_newline = true
 
 # Modules the prompt has
 
-# WARNING: Don't add sudo -module. It spams journalctl with messages after every
-# command.
-
 format = """
 $shell\
 $username\
@@ -41,11 +38,18 @@ $character"""
 
 # Module options
 
+# Commit hash and tag.
+[git_commit]
+disabled=true
+
+# Displays the exit code of the previous command
 [status]
 disabled = false
 
-# [sudo]
-# disabled = false
+# WARNING: Don't add sudo -module. It spams journalctl with messages after every
+# command.
+[sudo]
+disabled = true
 
 [character]
 # Vi normal mode symbol
