@@ -38,6 +38,11 @@ $character"""
 
 # Module options
 
+[shell]
+disabled = false
+bash_indicator = "Bash "
+zsh_indicator = ""
+
 # Commit hash and tag.
 [git_commit]
 disabled=true
