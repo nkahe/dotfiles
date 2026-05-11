@@ -4,6 +4,8 @@ These are managed by [Yet Another Dotfiles Manager - yadm](https://yadm.io/) whi
 
 Contains configurations for
 
+- Bash
+- Kitty terminal emulator
 - Conky system monitor
 - xkb - X keyboard extension. Implementation of [finner](https://github.com/ruohola/finner) - Windows/Mac keyboard layout for Linux.
 - Cheat command line tool
