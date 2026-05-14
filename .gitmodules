@@ -1,0 +1,3 @@
+[submodule "/home/henri/.config/zsh"]
+	path = .config/zsh
+	url = git@github.com:nkahe/zsh.git
