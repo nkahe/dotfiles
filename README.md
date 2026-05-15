@@ -18,6 +18,35 @@ Contains configurations for
 - `Micro` text editor
 - `Starship` cross-shell prompt
 
+## File structure
+
+~
+├── .bash_profile
+├── .bashrc
+├── .config
+│   ├── aerc
+│   ├── bash
+│   ├── cheat
+│   ├── conky
+│   ├── ctags
+│   ├── kate
+│   ├── kitty
+│   ├── lazygit
+│   ├── micro
+│   ├── nvim
+│   │   └── custom
+│   ├── picom.conf
+│   ├── starship.toml
+│   ├── xkb
+│   └── zsh
+├── .gitmodules
+├── .local
+│   └── share
+│       └── ktexteditor_snippets
+├── README.md
+└── scripts
+
+
 ## Conky
 
 [conky](https://github.com/brndnmtthws/conky) is light-weight system monitor for X, Wayland, and other things. This configuration LUA script makes Conky display info in futuristic fashion at side of desktop wallpaper.
@@ -29,3 +58,5 @@ Features
 Weather info, time, uptime, kernel version, network upload/download and graphs, sent and received data, disk I/O, show disk space for different disks, CPU usage, graph, and
 temperature, utilization of different cores, names of processes which use most CPU,
 GPU usage, temperature and fan speed, RAM usage and top processes which use most RAM.
+
+

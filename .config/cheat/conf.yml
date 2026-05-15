@@ -46,7 +46,7 @@ cheatpaths:
   # Once downloaded, ensure that 'path' below points to the location at which
   # you downloaded the community cheatsheets.
   - name: community
-    path: ~/Nextcloud/cheat-community/cheatsheets
+    path: ~/Nextcloud/cheat-community
     tags: [ community ]
     readonly: true
 
