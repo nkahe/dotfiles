@@ -24,6 +24,7 @@ Contains configurations for
 ~
 ├── .bash_profile
 ├── .bashrc
+├── .zshenv
 ├── .config
 │   ├── aerc
 │   ├── bash
