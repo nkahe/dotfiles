@@ -5,6 +5,7 @@ These are managed by [Yet Another Dotfiles Manager - yadm](https://yadm.io/) whi
 Contains configurations for
 
 - `Zsh` shell (submodule)
+- `Neovim` text editor (submodule)
 - `Bash`shell
 - `scripts/` - Misc sh/bash shell scripts I've wrote (submodule).
 - `Conky`system monitor
@@ -16,10 +17,6 @@ Contains configurations for
 - `LazyGit` Git client
 - `Micro` text editor
 - `Starship` cross-shell prompt
-
-Some much bigger configurations are in their own repo:
-
-- [Neovim text editor](https://github.com/nkahe/nvim)
 
 ## Conky
 
