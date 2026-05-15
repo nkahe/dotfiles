@@ -20,6 +20,7 @@ Contains configurations for
 
 ## File structure
 
+```
 ~
 ├── .bash_profile
 ├── .bashrc
@@ -45,7 +46,7 @@ Contains configurations for
 │       └── ktexteditor_snippets
 ├── README.md
 └── scripts
-
+```
 
 ## Conky
 
