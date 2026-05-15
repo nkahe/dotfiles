@@ -4,20 +4,22 @@ These are managed by [Yet Another Dotfiles Manager - yadm](https://yadm.io/) whi
 
 Contains configurations for
 
-- Bash
-- Kitty terminal emulator
-- Conky system monitor
-- xkb - X keyboard extension. Implementation of [finner](https://github.com/ruohola/finner) - Windows/Mac keyboard layout for Linux.
-- Cheat command line tool
-- Kate text editor
-- LazyGit
-- Micro texxt editor
-- Starhip prompt
+- `Zsh` shell (submodule)
+- `Bash`shell
+- `scripts/` - Misc sh/bash shell scripts I've wrote (submodule).
+- `Conky`system monitor
+- `Kitty` erminal emulator
+- `Aerc` mail client
+- `xkb` X keyboard extension. Implementation of [finner](https://github.com/ruohola/finner) - Windows/Mac keyboard layout for Linux.
+- `Cheat` command line tool
+- `Kate` text editor
+- `LazyGit` Git client
+- `Micro` text editor
+- `Starship` cross-shell prompt
 
 Some much bigger configurations are in their own repo:
 
 - [Neovim text editor](https://github.com/nkahe/nvim)
-- [Zsh command line shell](https://github.com/nkahe/zsh)
 
 ## Conky
 
@@ -25,7 +27,7 @@ Some much bigger configurations are in their own repo:
 
 ![Conky screenshot](./Pictures/dotfiles/conky-screenshot.png)
 
-Script features
+Features
 
 Weather info, time, uptime, kernel version, network upload/download and graphs, sent and received data, disk I/O, show disk space for different disks, CPU usage, graph, and
 temperature, utilization of different cores, names of processes which use most CPU,
