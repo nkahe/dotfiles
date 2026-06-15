@@ -1,7 +1,10 @@
+#!/bin/bash
 # .bash_profile
 
-# Automatically trim long paths in the prompt (requires Bash 4.x)
-# PROMPT_DIRTRIM=2
+file=$ZDOTDIR/.zprofile
+if [[ -f $file ]]; then
+    source "$file"
+fi
 
 # We don't use WezTerm as the active terminal; avoid its injected shell hooks.
 export WEZTERM_SHELL_SKIP_ALL=1
