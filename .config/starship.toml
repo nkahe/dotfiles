@@ -40,7 +40,7 @@ $character"""
 
 [shell]
 disabled = false
-bash_indicator = "Bash "
+bash_indicator = "Bash"
 zsh_indicator = ""
 
 # Commit hash and tag.
