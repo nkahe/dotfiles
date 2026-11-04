@@ -6,16 +6,17 @@ Contains configurations for
 
 - `Zsh` shell (submodule)
 - `Neovim` text editor (submodule)
-- `Bash`shell
+- `Bash` shell
 - `scripts/` - Misc sh/bash shell scripts I've wrote (submodule).
-- `Conky`system monitor
-- `Kitty` erminal emulator
+- `Conky` system monitor
+- `Kitty` terminal emulator
 - `Aerc` mail client
 - `xkb` X keyboard extension. Implementation of [finner](https://github.com/ruohola/finner) - Windows/Mac keyboard layout for Linux.
 - `Cheat` command line tool
 - `Kate` text editor
 - `LazyGit` Git client
 - `Micro` text editor
+- `VSCodium` code editor
 - `Starship` cross-shell prompt
 
 ## File structure
@@ -39,6 +40,7 @@ Contains configurations for
 │   │   └── custom
 │   ├── picom.conf
 │   ├── starship.toml
+│   ├── VSCodium/
 │   ├── xkb
 │   └── zsh
 ├── .gitmodules
