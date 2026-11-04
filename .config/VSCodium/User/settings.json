@@ -1,0 +1,128 @@
+{
+  "diffEditor.ignoreTrimWhitespace": false,
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.fontFamily": " 'JetBrains Mono', 'Fira Code', 'Victor Mono','monospace', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 11,
+  "terminal.integrated.fontSize": 11,
+  "editor.lineNumbers": "relative",
+  "editor.linkedEditing": true,
+  "editor.mouseWheelScrollSensitivity": 3,
+  "editor.rulers": [ 80 ],
+  "editor.smoothScrolling": true,
+  "eslint.format.enable": true,
+  "files.exclude": {
+    "/documentation/*": true,
+    "/documentation/additional-information": false
+  },
+  "chatgpt.gpt3.provider": "ChatGPT",
+  "git.confirmSync": false,
+  "git.autofetch": true,
+
+  "prettier.singleAttributePerLine": true,
+  "update.mode": "none",
+  "window.customMenuBarAltFocus": false,
+  "window.enableMenuBarMnemonics": false,
+  "vscode-neovim.neovimExecutablePaths.linux": "/home/henri/.local/share/bob/nvim-bin/nvim",
+  "workbench.iconTheme": "material-icon-theme",
+
+  "markdown-preview-enhanced.previewTheme": "one-dark.css",
+  "vscode-neovim.compositeTimeout": 400,
+  "window.zoomLevel": 2,
+  "editor.minimap.enabled": false,
+  "chat.editor.fontSize": 12,
+  "workbench.tabs.experimental.fontSize": 11,
+
+  "workbench.colorTheme": "Oceanic Next",
+
+  // UI Colors
+  "workbench.colorCustomizations": {
+    "terminal.background": "#000000",
+    "[Oceanic Next]": {
+      // "menu.selectionBackground": "#141eb3", // Doesn't work.
+      "editor.background": "#192830",
+      "editor.lineHighlightBackground": "#203038",
+      "menu.background": "#212e36",
+      "editorRuler.foreground": "#203038",
+      "editorIndentGuide.background1": "#3b434a",
+      "editorHoverWidget.background": "#26363e",
+      "statusBar.background": "#1d2930",
+    }
+  },
+
+  // Syntax highlighting tweaks
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          //following will be in italic (=FlottFlott)
+          "comment",
+          "entity.name.type.class", //class names
+          "keyword", //import, export, return…
+          "constant", //String, Number, Boolean…, this, super
+          "storage.modifier", //static keyword
+          "storage.type.class.js" //class keyword
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          //following will be excluded from italics (VSCode has some defaults for italics)
+          "invalid",
+          "keyword.operator",
+          "constant.numeric.css",
+          "keyword.other.unit.px.css",
+          "constant.numeric.decimal.js",
+          "constant.numeric.json"
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+
+  // Languages
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[markdown]": {
+    "editor.wordWrapColumn": 90,
+    "editor.wordWrap": "wordWrapColumn",
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.quickSuggestions": {
+      "comments": "off",
+      "strings": "off",
+      "other": "off"
+    }
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Extensions
+
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+
+  "gitlens.telemetry.enabled": false,
+
+  // "whichkey.delay": 0,
+  // "whichkey.bindingOverrides": [
+  //   {
+  //     "keys": "e",
+  //     "name": "Toggle Explorer",
+  //     "type": "command",
+  //     "command": "workbench.action.toggleSidebarVisibility"
+  //   }
+  // ]
+}
