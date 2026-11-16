@@ -11,7 +11,7 @@
   "editor.mouseWheelScrollSensitivity": 3,
   "editor.rulers": [ 80 ],
   "editor.smoothScrolling": true,
-  "eslint.format.enable": true,
+  // "eslint.format.enable": true,
   "files.exclude": {
     "/documentation/*": true,
     "/documentation/additional-information": false
@@ -30,23 +30,28 @@
   "markdown-preview-enhanced.previewTheme": "one-dark.css",
   "vscode-neovim.compositeTimeout": 400,
   "window.zoomLevel": 2,
-  "editor.minimap.enabled": false,
   "chat.editor.fontSize": 12,
   "workbench.tabs.experimental.fontSize": 11,
 
   "workbench.colorTheme": "Oceanic Next",
-
+ 
   // UI Colors
   "workbench.colorCustomizations": {
     "terminal.background": "#000000",
+
     "[Oceanic Next]": {
       // "menu.selectionBackground": "#141eb3", // Doesn't work.
       "editor.background": "#192830",
       "editor.lineHighlightBackground": "#203038",
       "menu.background": "#212e36",
+      // "menubar.selectionBackground": "#005500",
+      "menu.selectionBackground": "#005500",
       "editorRuler.foreground": "#203038",
       "editorIndentGuide.background1": "#3b434a",
       "editorHoverWidget.background": "#26363e",
+      "list.activeSelectionBackground": "#203038",
+      "list.focusOutline": "#3f5764",
+      // "list.focusAndSelectionOutline": "#3f5764",
       "statusBar.background": "#1d2930",
     }
   },
@@ -115,6 +120,7 @@
   },
 
   "gitlens.telemetry.enabled": false,
+  "editor.stickyScroll.enabled": false,
 
   // "whichkey.delay": 0,
   // "whichkey.bindingOverrides": [
